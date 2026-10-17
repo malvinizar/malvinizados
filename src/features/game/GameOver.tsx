@@ -10,6 +10,7 @@ import { CreamCard } from "@/components/ui/CreamCard";
 import { SolDeMayo } from "@/components/ui/SolDeMayo";
 import { CATEGORY_BY_ID } from "@/config/categories";
 import { Malvinometro } from "@/features/hud/Malvinometro";
+import { SaveScoreForm } from "@/features/ranking/SaveScoreForm";
 import { sound } from "@/lib/sound";
 import type { CategoriaStats, GameStats } from "./stats";
 
@@ -126,6 +127,19 @@ export function GameOver({ stats, segundos, onRestart }: GameOverProps) {
           <div className="mb-6 grid grid-cols-2 gap-3">
             <CategoriaCard titulo="Más fuerte" data={stats.fuerte} delay={1.05} />
             <CategoriaCard titulo="Para repasar" data={stats.debil} delay={1.15} />
+          </div>
+
+          <div className="mb-6 rounded-2xl border-[3px] border-dashed border-cream-border p-3">
+            <SaveScoreForm
+              datos={{
+                puntaje: stats.puntaje,
+                malvinometro: stats.malvinometro,
+                nivel: stats.nivel.nombre,
+                aciertos: stats.aciertos,
+                total: stats.aciertos + stats.errores,
+                duracionSeg: segundos,
+              }}
+            />
           </div>
 
           <div className="flex flex-col gap-4">

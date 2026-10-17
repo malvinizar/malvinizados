@@ -1,6 +1,16 @@
-import { ComingSoon } from "@/components/layout/ComingSoon";
+import type { Metadata } from "next";
+import { Suspense } from "react";
+import { RankingScreen } from "@/features/ranking/RankingScreen";
 
-// Provisorio: el ranking con Firestore llega en el paso 6.
+export const metadata: Metadata = {
+  title: "Ranking · MalvinizAR",
+};
+
 export default function RankingPage() {
-  return <ComingSoon title="Ranking" text="El ranking de escuelas y cursos estará disponible pronto." />;
+  // Suspense es necesario porque la pantalla lee parámetros de la URL (?escuela=).
+  return (
+    <Suspense>
+      <RankingScreen />
+    </Suspense>
+  );
 }

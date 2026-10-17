@@ -1,0 +1,43 @@
+rules_version = '2';
+
+// Reglas de seguridad de MalvinizAR.
+// Pegar en: Consola de Firebase → Firestore Database → Reglas → Publicar.
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    match /ranking/{id} {
+      // Cualquiera puede ver el ranking.
+      allow read: if true;
+
+      // Solo se pueden agregar puntajes, con datos válidos y desde una sesión (anónima) propia.
+      allow create: if request.auth != null
+        && validPuntaje(request.resource.data);
+
+      // Nadie puede editar ni borrar puntajes desde el juego.
+      allow update, delete: if false;
+    }
+
+    // Todo lo demás está cerrado.
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    function validPuntaje(d) {
+      return d.keys().hasOnly(['nombre', 'curso', 'escuela', 'puntaje', 'malvinometro', 'nivel',
+                               'aciertos', 'total', 'duracionSeg', 'uid', 'fecha'])
+        && d.keys().hasAll(['nombre', 'curso', 'escuela', 'puntaje', 'malvinometro', 'nivel',
+                            'aciertos', 'total', 'duracionSeg', 'uid', 'fecha'])
+        && d.uid == request.auth.uid
+        && d.fecha == request.time
+        && d.nombre is string && d.nombre.size() >= 2 && d.nombre.size() <= 24
+        && d.curso is string && d.curso.size() >= 1 && d.curso.size() <= 12
+        && d.escuela is string && d.escuela.size() >= 3 && d.escuela.size() <= 60
+        && d.nivel is string && d.nivel.size() <= 40
+        && d.total is int && d.total >= 1 && d.total <= 50
+        && d.aciertos is int && d.aciertos >= 0 && d.aciertos <= d.total
+        && d.puntaje is int && d.puntaje >= 0 && d.puntaje <= d.aciertos * 1000
+        && d.malvinometro is int && d.malvinometro >= 0 && d.malvinometro <= 100
+        && d.duracionSeg is int && d.duracionSeg >= 5 && d.duracionSeg <= 7200;
+    }
+  }
+}
