@@ -1,4 +1,4 @@
-import type { ComponentType } from "react";
+import type { ComponentType, SVGProps } from "react";
 import { CineIcon, FutbolIcon, IslasIcon, MusicaIcon } from "@/components/icons/CategoryIcons";
 
 /** Valores exactos que usa el campo "categoria" del JSON de preguntas. */
@@ -13,7 +13,7 @@ export interface CategoryDef {
   color: string;
   colorDark: string;
   colorLight: string;
-  Icon: ComponentType<{ className?: string }>;
+  Icon: ComponentType<SVGProps<SVGSVGElement>>;
 }
 
 export const CATEGORIES: readonly CategoryDef[] = [

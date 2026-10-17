@@ -1,7 +1,7 @@
-import { useId } from "react";
+import { useId, type SVGProps } from "react";
 import { cn } from "@/lib/cn";
 
-interface SolDeMayoProps {
+interface SolDeMayoProps extends Omit<SVGProps<SVGSVGElement>, "viewBox"> {
   className?: string;
   /** Dibuja el rostro del sol. */
   withFace?: boolean;
@@ -15,13 +15,13 @@ const WAVY_RAY =
 /**
  * Sol de Mayo dibujado desde cero: 32 rayos que alternan rectos y flamígeros.
  */
-export function SolDeMayo({ className, withFace = true }: SolDeMayoProps) {
+export function SolDeMayo({ className, withFace = true, ...rest }: SolDeMayoProps) {
   const id = useId().replace(/:/g, "");
   const gradId = `sol-grad-${id}`;
   const faceId = `sol-face-${id}`;
 
   return (
-    <svg viewBox="-60 -60 120 120" className={cn("block", className)} aria-hidden>
+    <svg viewBox="-60 -60 120 120" className={cn("block", className)} aria-hidden {...rest}>
       <defs>
         <radialGradient id={gradId} cx="40%" cy="35%" r="75%">
           <stop offset="0%" stopColor="#ffe9a0" />

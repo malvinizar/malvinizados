@@ -1,12 +1,10 @@
-import { ComingSoon } from "@/components/layout/ComingSoon";
-import { PREGUNTAS } from "@/features/questions/bank";
+import type { Metadata } from "next";
+import { GameScreen } from "@/features/game/GameScreen";
 
-// Provisorio: la ruleta llega en el próximo paso.
+export const metadata: Metadata = {
+  title: "Jugar · MalvinizAR",
+};
+
 export default function JugarPage() {
-  return (
-    <ComingSoon
-      title="¡Muy pronto!"
-      text={`Ya tenemos ${PREGUNTAS.length} preguntas listas. Estamos terminando la ruleta.`}
-    />
-  );
+  return <GameScreen />;
 }

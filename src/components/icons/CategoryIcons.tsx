@@ -3,14 +3,15 @@
  * (currentColor) para poder teñirlos según el contexto.
  */
 
-interface IconProps {
-  className?: string;
-}
+import type { SVGProps } from "react";
+
+/** Acepta cualquier atributo SVG (className, width, height, x, y…) para poder usarlos dentro de otros SVG. */
+type IconProps = SVGProps<SVGSVGElement>;
 
 /** Silueta estilizada de las islas (Gran Malvina y Soledad). Historia. */
-export function IslasIcon({ className }: IconProps) {
+export function IslasIcon(props: IconProps) {
   return (
-    <svg viewBox="0 0 100 64" className={className} fill="currentColor" aria-hidden>
+    <svg viewBox="0 0 100 64" fill="currentColor" aria-hidden {...props}>
       {/* Gran Malvina */}
       <path d="M18 12 Q26 8 32 14 Q38 20 36 26 Q42 30 38 36 Q36 46 28 50 Q20 54 18 46 Q16 40 20 34 Q12 30 14 22 Q12 16 18 12 Z" />
       {/* Soledad: norte, istmo y sur */}
@@ -24,9 +25,9 @@ export function IslasIcon({ className }: IconProps) {
 }
 
 /** Nota musical doble. Música. */
-export function MusicaIcon({ className }: IconProps) {
+export function MusicaIcon(props: IconProps) {
   return (
-    <svg viewBox="0 0 64 64" className={className} fill="currentColor" aria-hidden>
+    <svg viewBox="0 0 64 64" fill="currentColor" aria-hidden {...props}>
       <path d="M24 12 L54 5 V44 H48 V17 L30 21 V50 H24 Z" />
       <ellipse cx="18" cy="50" rx="10" ry="8" transform="rotate(-18 18 50)" />
       <ellipse cx="42" cy="44" rx="10" ry="8" transform="rotate(-18 42 44)" />
@@ -35,9 +36,9 @@ export function MusicaIcon({ className }: IconProps) {
 }
 
 /** Claqueta de cine. Cine. */
-export function CineIcon({ className }: IconProps) {
+export function CineIcon(props: IconProps) {
   return (
-    <svg viewBox="0 0 64 64" className={className} fill="currentColor" aria-hidden>
+    <svg viewBox="0 0 64 64" fill="currentColor" aria-hidden {...props}>
       {/* Tabla superior inclinada */}
       <path
         fillRule="evenodd"
@@ -52,9 +53,9 @@ export function CineIcon({ className }: IconProps) {
 }
 
 /** Pelota de fútbol. Fútbol. */
-export function FutbolIcon({ className }: IconProps) {
+export function FutbolIcon(props: IconProps) {
   return (
-    <svg viewBox="0 0 64 64" className={className} aria-hidden>
+    <svg viewBox="0 0 64 64" aria-hidden {...props}>
       <circle cx="32" cy="32" r="26" fill="none" stroke="currentColor" strokeWidth="5" />
       <path d="M32 21 L42 28.5 L38.5 40 H25.5 L22 28.5 Z" fill="currentColor" />
       <g stroke="currentColor" strokeWidth="4" strokeLinecap="round">
