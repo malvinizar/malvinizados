@@ -64,7 +64,11 @@ Las preguntas están en `src/data/preguntas.json`. No hay ninguna pregunta escri
 
 ## Sonidos
 
-El sistema de sonido ya está conectado, pero no reproduce nada hasta que se le asignan archivos. Para agregarlos, copiá los audios en `public/sounds/` y completá sus rutas en `src/lib/sound.ts`.
+Los sonidos se generan por código con Web Audio (`src/lib/synth.ts`), así que no hay archivos de audio. Para reemplazar alguno por una grabación propia, copiá el archivo en `public/sounds/` y completá su ruta en `SOURCES`, dentro de `src/lib/sound.ts`.
+
+## Puntaje y Malvinómetro
+
+Los puntos por dificultad, el multiplicador por racha y los nombres de los niveles se configuran en `src/config/scoring.ts`.
 
 ## Hoja de ruta
 
