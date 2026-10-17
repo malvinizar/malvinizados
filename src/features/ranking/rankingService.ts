@@ -9,7 +9,6 @@ import {
   query,
   serverTimestamp,
   Timestamp,
-  where,
 } from "firebase/firestore";
 import { RANKING_COLLECTION } from "@/config/firebase";
 import { db, ensureAnonymousUser } from "@/lib/firebase";
@@ -60,14 +59,16 @@ export async function guardarPuntaje(data: NuevoPuntaje): Promise<string> {
   return ref.id;
 }
 
-/** Mejores puntajes. Si se indica escuela, filtra por esa escuela. */
-export async function obtenerRanking(opciones: { escuela?: string; cantidad?: number } = {}): Promise<FilaRanking[]> {
-  const cantidad = opciones.cantidad ?? 20;
-  const base = collection(db(), RANKING_COLLECTION);
-  // Por escuela se ordena en el navegador: así no hace falta crear un índice compuesto en Firestore.
-  const q = opciones.escuela
-    ? query(base, where("escuela", "==", opciones.escuela), limit(300))
-    : query(base, orderBy("puntaje", "desc"), limit(cantidad));
+export interface PaginaRanking {
+  filas: FilaRanking[];
+  /** ¿Hay más participantes después de los mostrados? */
+  hayMas: boolean;
+}
+
+/** Mejores puntajes generales (los primeros `cantidad`). */
+export async function obtenerRanking(cantidad: number): Promise<PaginaRanking> {
+  // Pedimos uno extra para saber si corresponde mostrar "Ver más".
+  const q = query(collection(db(), RANKING_COLLECTION), orderBy("puntaje", "desc"), limit(cantidad + 1));
   const snap = await getDocs(q);
   const filas = snap.docs.map((d) => {
     const x = d.data();
@@ -85,7 +86,7 @@ export async function obtenerRanking(opciones: { escuela?: string; cantidad?: nu
       fecha: x.fecha instanceof Timestamp ? x.fecha.toDate() : null,
     };
   });
-  return filas.sort((a, b) => b.puntaje - a.puntaje).slice(0, cantidad);
+  return { filas: filas.slice(0, cantidad), hayMas: filas.length > cantidad };
 }
 
 /* Datos del jugador recordados en este dispositivo (para no tipearlos cada vez). */

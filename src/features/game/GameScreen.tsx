@@ -64,21 +64,21 @@ export function GameScreen() {
   const numero = state.historial.length + (state.phase === "answered" ? 0 : 1);
 
   return (
-    <main className="mx-auto flex min-h-dvh w-full max-w-md flex-col items-center gap-5 px-4 pb-[max(1.5rem,env(safe-area-inset-bottom))] pt-[max(1rem,env(safe-area-inset-top))]">
+    <main className={`mx-auto flex min-h-dvh w-full max-w-md flex-col items-center gap-5 px-4 pb-[max(1.5rem,env(safe-area-inset-bottom))] pt-[max(1rem,env(safe-area-inset-top))] lg:grid lg:h-dvh lg:max-w-[1800px] lg:grid-rows-[minmax(0,1fr)] lg:items-stretch lg:gap-12 lg:px-12 lg:py-10 ${state.phase === "finished" ? "lg:grid-cols-1" : "lg:grid-cols-[380px_minmax(0,1fr)]"}`}>
       {state.phase !== "finished" ? <GameHud historial={state.historial} total={state.total} stats={stats} /> : null}
 
       <AnimatePresence mode="wait">
         {showWheel ? (
           <motion.div
             key="wheel"
-            className="flex w-full flex-1 flex-col items-center justify-center gap-8"
+            className="flex w-full flex-1 flex-col items-center justify-center gap-8 lg:min-h-0 lg:gap-6"
             initial={{ opacity: 0, scale: 0.85 }}
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.9, transition: { duration: 0.2 } }}
             transition={{ type: "spring", stiffness: 220, damping: 20 }}
           >
             <motion.p
-              className="text-game text-center text-3xl text-white [--stroke-c:#0a1a3a] [--stroke-w:6px] [--drop:3px]"
+              className="text-game text-center text-3xl text-white [--stroke-c:#0a1a3a] [--stroke-w:6px] [--drop:3px] lg:text-5xl lg:[--stroke-w:9px] lg:[--drop:5px]"
               animate={{ opacity: spinning ? 0.6 : 1 }}
             >
               {spinning ? "¡Girando!" : `Pregunta ${Math.min(numero, state.total)} de ${state.total}`}
@@ -93,7 +93,7 @@ export function GameScreen() {
               disabled={state.phase !== "idle"}
             />
 
-            <div className="w-full max-w-xs">
+            <div className="w-full max-w-xs lg:max-w-md">
               <Button3D size="xl" onClick={handleSpin} disabled={state.phase !== "idle"} pulse={state.phase === "idle"}>
                 ¡Girar!
               </Button3D>

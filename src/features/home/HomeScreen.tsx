@@ -57,13 +57,13 @@ export function HomeScreen() {
   const [howToOpen, setHowToOpen] = useState(false);
 
   return (
-    <main className="mx-auto flex min-h-dvh w-full max-w-md flex-col items-center justify-between gap-6 px-4 pb-[max(1.5rem,env(safe-area-inset-bottom))] pt-[max(4.5rem,env(safe-area-inset-top))]">
-      <Logo className="mt-6" />
+    <main className="mx-auto flex min-h-dvh w-full max-w-md flex-col items-center justify-between gap-6 px-4 pb-[max(1.5rem,env(safe-area-inset-bottom))] pt-[max(4.5rem,env(safe-area-inset-top))] lg:grid lg:h-dvh lg:max-w-[1600px] lg:grid-cols-2 lg:grid-rows-[auto_auto] lg:content-center lg:gap-x-24 lg:gap-y-20 lg:px-20 lg:py-0">
+      <Logo className="mt-6 lg:col-start-1 lg:row-start-1 lg:mt-0" />
 
-      <motion.div className="w-full" variants={container} initial="hidden" animate="show">
+      <motion.div className="w-full lg:col-start-2 lg:row-span-2 lg:row-start-1 lg:max-w-xl lg:justify-self-center" variants={container} initial="hidden" animate="show">
         <motion.div variants={card}>
-          <CreamCard title="Menú principal">
-            <div className="flex flex-col gap-4">
+          <CreamCard title="Menú principal" bodyClassName="lg:px-10 lg:pb-10 lg:pt-14">
+            <div className="flex flex-col gap-4 lg:gap-6">
               <motion.div variants={item}>
                 <Button3D href="/jugar" size="xl" pulse icon={<PlayIcon />}>
                   ¡Jugar!
@@ -85,7 +85,7 @@ export function HomeScreen() {
       </motion.div>
 
       <motion.ul
-        className="grid w-full grid-cols-4 gap-2"
+        className="grid w-full grid-cols-4 gap-2 lg:col-start-1 lg:row-start-2 lg:max-w-2xl lg:justify-self-center lg:gap-8"
         aria-label="Categorías"
         initial="hidden"
         animate="show"
@@ -103,7 +103,7 @@ export function HomeScreen() {
               category={category}
               size="md"
               showLabel
-              className="animate-bob motion-reduce:animate-none"
+              className="animate-bob motion-reduce:animate-none lg:scale-125"
               style={{ animationDelay: `${i * 0.35}s` }}
             />
           </motion.li>

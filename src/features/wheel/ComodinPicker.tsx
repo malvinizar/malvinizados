@@ -29,7 +29,7 @@ export function ComodinPicker({ available, onPick }: ComodinPickerProps) {
       exit={{ opacity: 0 }}
     >
       <motion.div
-        className="size-36"
+        className="size-36 lg:size-56"
         initial={{ scale: 0, rotate: -180 }}
         animate={{ scale: 1, rotate: 0 }}
         transition={{ type: "spring", stiffness: 200, damping: 12 }}
@@ -38,14 +38,14 @@ export function ComodinPicker({ available, onPick }: ComodinPickerProps) {
       </motion.div>
 
       <motion.div
-        className="w-full max-w-sm"
+        className="w-full max-w-sm lg:max-w-2xl"
         initial={{ y: 60, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ type: "spring", stiffness: 260, damping: 20, delay: 0.2 }}
       >
         <CreamCard title="¡Comodín!" titleTone="gold">
           <p className="mb-4 text-center font-bold text-ink-soft">Cayó el Sol de Mayo: elegí la categoría.</p>
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-2 gap-4 lg:grid-cols-4">
             {CATEGORIES.map((c, i) => {
               const enabled = available.includes(c.id);
               return (

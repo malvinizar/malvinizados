@@ -41,7 +41,7 @@ export function HowToPlayModal({ open, onClose }: HowToPlayModalProps) {
             role="dialog"
             aria-modal="true"
             aria-labelledby="how-to-title"
-            className="w-full max-w-sm"
+            className="w-full max-w-sm lg:max-w-xl"
             initial={{ scale: 0.6, y: 40, opacity: 0 }}
             animate={{ scale: 1, y: 0, opacity: 1 }}
             exit={{ scale: 0.8, y: 20, opacity: 0 }}

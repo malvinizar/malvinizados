@@ -24,6 +24,25 @@ export function IslasIcon(props: IconProps) {
   );
 }
 
+/** Libro abierto. Historia. */
+export function LibroIcon(props: IconProps) {
+  return (
+    <svg viewBox="0 0 64 64" fill="currentColor" aria-hidden {...props}>
+      {/* Páginas con renglones calados */}
+      <path
+        fillRule="evenodd"
+        d="M30.5 15 C23 9.5 12 9.5 5 12.5 V51 C12 48 23 48 30.5 53.5 Z M10 21 h15 v2.8 h-15 z M10 28 h15 v2.8 h-15 z M10 35 h15 v2.8 h-15 z M10 42 h10 v2.8 h-10 z"
+      />
+      <path
+        fillRule="evenodd"
+        d="M33.5 15 C41 9.5 52 9.5 59 12.5 V51 C52 48 41 48 33.5 53.5 Z M39 21 h15 v2.8 h-15 z M39 28 h15 v2.8 h-15 z M39 35 h15 v2.8 h-15 z M39 42 h10 v2.8 h-10 z"
+      />
+      {/* Tapa */}
+      <path d="M3 54 C14 50.5 24 51.5 32 56.5 C40 51.5 50 50.5 61 54 V57.5 C50 54.5 40 55.5 32 60.5 C24 55.5 14 54.5 3 57.5 Z" />
+    </svg>
+  );
+}
+
 /** Nota musical doble. Música. */
 export function MusicaIcon(props: IconProps) {
   return (

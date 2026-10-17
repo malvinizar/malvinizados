@@ -1,5 +1,5 @@
 import type { ComponentType, SVGProps } from "react";
-import { CineIcon, FutbolIcon, IslasIcon, MusicaIcon } from "@/components/icons/CategoryIcons";
+import { CineIcon, FutbolIcon, LibroIcon, MusicaIcon } from "@/components/icons/CategoryIcons";
 
 /** Valores exactos que usa el campo "categoria" del JSON de preguntas. */
 export type CategoriaId = "Historia" | "Música" | "Cine" | "Fútbol";
@@ -24,7 +24,7 @@ export const CATEGORIES: readonly CategoryDef[] = [
     color: "#3fa9f5",
     colorDark: "#1f74b8",
     colorLight: "#a9dcff",
-    Icon: IslasIcon,
+    Icon: LibroIcon,
   },
   {
     id: "Música",

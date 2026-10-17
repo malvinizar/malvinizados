@@ -54,11 +54,11 @@ export function CategoryReveal({ category, onDone }: CategoryRevealProps) {
         animate={{ scale: 1, rotate: 0 }}
         transition={{ type: "spring", stiffness: 220, damping: 13 }}
       >
-        <CategoryBadge category={category} size="lg" className="scale-125" />
+        <CategoryBadge category={category} size="lg" className="scale-125 lg:scale-[2.2]" />
       </motion.div>
 
       <motion.p
-        className="text-game relative text-5xl uppercase text-white [--stroke-c:rgba(10,26,58,0.85)] [--stroke-w:8px]"
+        className="text-game relative text-5xl uppercase text-white [--stroke-c:rgba(10,26,58,0.85)] [--stroke-w:8px] lg:mt-16 lg:text-9xl lg:[--stroke-w:14px]"
         initial={{ y: 40, opacity: 0, scale: 0.6 }}
         animate={{ y: 0, opacity: 1, scale: 1 }}
         transition={{ type: "spring", stiffness: 300, damping: 14, delay: 0.25 }}

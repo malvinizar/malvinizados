@@ -64,7 +64,7 @@ export function SaveScoreForm({ datos }: { datos: Datos }) {
           animate={{ scale: 1, opacity: 1 }}
         >
           <p className="font-display text-xl text-futbol-dark">¡Puntaje guardado!</p>
-          <Button3D variant="celeste" href={`/ranking/?escuela=${encodeURIComponent(limpiar(escuela, LIMITES.escuela))}`}>
+          <Button3D variant="celeste" href="/ranking">
             Ver ranking
           </Button3D>
         </motion.div>

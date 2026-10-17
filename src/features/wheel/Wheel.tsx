@@ -40,7 +40,7 @@ function sectorPath(index: number, r = R_WHEEL): string {
  */
 export function Wheel({ rotation, pointer, spinning, highlight, onSpin, disabled, className }: WheelProps) {
   return (
-    <div className={cn("relative mx-auto aspect-square w-[min(88vw,26rem)] select-none", className)}>
+    <div className={cn("relative mx-auto aspect-square w-[min(88vw,26rem)] select-none lg:w-[min(44vw,64vh)]", className)}>
       {/* Sombra del piso */}
       <div className="absolute inset-x-[8%] -bottom-3 h-8 rounded-[50%] bg-navy-950/60 blur-md" aria-hidden />
 

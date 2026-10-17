@@ -53,47 +53,52 @@ export function QuestionScreen({ current, elegida, numero, total, onAnswer, onCo
 
   return (
     <motion.section
-      className="flex w-full flex-col gap-4"
+      className="flex w-full flex-col gap-4 lg:grid lg:h-full lg:min-h-0 lg:grid-cols-[1.1fr_1fr] lg:grid-rows-[minmax(0,1fr)] lg:items-start lg:gap-10"
       initial={{ y: 40, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       exit={{ y: -30, opacity: 0, transition: { duration: 0.2 } }}
       transition={{ type: "spring", stiffness: 260, damping: 24 }}
       aria-labelledby="pregunta-texto"
     >
+      {/* Columna izquierda (en 1920×1080): categoría, pregunta y multimedia */}
+      <div className="flex flex-col gap-4 lg:max-h-full lg:gap-6 lg:overflow-y-auto lg:p-1">
       {/* Arriba: categoría */}
       <div
-        className="flex items-center gap-3 rounded-2xl border-4 px-3 py-2 shadow-[0_5px_0_rgba(0,0,0,0.3)]"
+        className="flex items-center gap-3 rounded-2xl border-4 px-3 py-2 shadow-[0_5px_0_rgba(0,0,0,0.3)] lg:gap-5 lg:px-5 lg:py-3"
         style={{ background: category.color, borderColor: category.colorDark }}
       >
         <CategoryBadge category={category} size="sm" />
-        <span className="text-game flex-1 text-2xl uppercase text-white [--stroke-c:rgba(10,26,58,0.55)] [--stroke-w:5px] [--drop:2px]">
+        <span className="text-game flex-1 text-2xl lg:text-4xl uppercase text-white [--stroke-c:rgba(10,26,58,0.55)] [--stroke-w:5px] [--drop:2px]">
           {category.label}
         </span>
-        <span className="rounded-full bg-white/25 px-3 py-1 font-display text-sm text-white">
+        <span className="rounded-full bg-white/25 px-3 py-1 font-display text-sm text-white lg:px-4 lg:text-xl">
           {numero}/{total}
         </span>
       </div>
 
       {/* Pregunta */}
       <motion.div
-        className="cream-card px-5 py-5"
+        className="cream-card px-5 py-5 lg:px-8 lg:py-8"
         initial={{ scale: 0.85, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
         transition={{ type: "spring", stiffness: 300, damping: 18, delay: 0.08 }}
       >
-        <div className="mb-2 flex items-center justify-between text-xs font-extrabold uppercase tracking-wide text-ink-soft">
+        <div className="mb-2 flex items-center justify-between text-xs font-extrabold uppercase tracking-wide text-ink-soft lg:text-sm">
           <span>Dificultad: {pregunta.dificultad}</span>
         </div>
-        <h2 id="pregunta-texto" className="text-xl font-extrabold leading-snug text-navy-900 sm:text-2xl">
+        <h2 id="pregunta-texto" className="text-xl font-extrabold leading-snug text-navy-900 sm:text-2xl lg:text-4xl lg:leading-tight">
           {pregunta.pregunta}
         </h2>
       </motion.div>
 
       {/* Centro: multimedia */}
       <MediaRenderer media={pregunta.media} />
+      </div>
 
+      {/* Columna derecha (en 1920×1080): respuestas y explicación */}
+      <div className="flex flex-col gap-4 lg:max-h-full lg:overflow-y-auto lg:p-1 lg:pr-3">
       {/* Abajo: respuestas */}
-      <div className="flex flex-col gap-3" role="group" aria-label="Opciones">
+      <div className="flex flex-col gap-3 lg:gap-4" role="group" aria-label="Opciones">
         {orden.map((idx, i) => (
           <AnswerButton
             key={`${pregunta.id}-${idx}`}
@@ -119,7 +124,7 @@ export function QuestionScreen({ current, elegida, numero, total, onAnswer, onCo
             aria-live="polite"
           >
             <div className="absolute inset-x-0 top-0 z-10">
-              <Ribbon as="p" tone={acerto ? "gold" : "celeste"} className="w-[min(17rem,85%)]">
+              <Ribbon as="p" tone={acerto ? "gold" : "celeste"} className="w-[min(17rem,85%)] lg:h-14 lg:w-[20rem]" textClassName="lg:text-xl">
                 {acerto ? "¡Correcto!" : "¡Casi!"}
               </Ribbon>
             </div>
@@ -146,7 +151,7 @@ export function QuestionScreen({ current, elegida, numero, total, onAnswer, onCo
                   La respuesta correcta era: <span className="text-futbol-dark">{pregunta.opciones[pregunta.correcta]}</span>
                 </p>
               ) : null}
-              <p className="text-base font-semibold leading-relaxed text-ink">{pregunta.explicacion}</p>
+              <p className="text-base font-semibold leading-relaxed text-ink lg:text-lg">{pregunta.explicacion}</p>
               <SourceLine fuente={pregunta.fuente} />
               <Button3D variant={esUltima ? "yellow" : "green"} onClick={onContinue} className="mt-1">
                 {esUltima ? "Ver resultados" : "Continuar"}
@@ -155,6 +160,7 @@ export function QuestionScreen({ current, elegida, numero, total, onAnswer, onCo
           </motion.div>
         ) : null}
       </AnimatePresence>
+      </div>
 
       {acerto ? <Confetti burstKey={pregunta.id} count={36} /> : null}
     </motion.section>
