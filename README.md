@@ -77,5 +77,5 @@ Los puntos por dificultad, el multiplicador por racha y los nombres de los nivel
 3. ✅ Ruleta
 4. ✅ Pantalla de pregunta, multimedia y explicación
 5. ✅ Malvinómetro, puntaje, rachas y resultado
-6. ⬜ Ranking en Firestore (auth anónima)
+6. ✅ Ranking en Firestore (auth anónima)
 7. ⬜ Pulido de animaciones, sonidos y accesibilidad
