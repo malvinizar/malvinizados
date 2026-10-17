@@ -47,6 +47,13 @@ Los colores, la tipografía y los estilos base están en `src/app/globals.css`:
 
 Todos los gráficos (Sol de Mayo, íconos, cintas) están dibujados desde cero en SVG. No se usan recursos de terceros.
 
+## Preguntas
+
+Las preguntas están en `src/data/preguntas.json`. No hay ninguna pregunta escrita dentro del código. La versión en planilla para revisar está en `docs/banco-de-preguntas.xlsx`.
+
+- **Validar el archivo:** `npm run validate:preguntas`. También se valida solo antes de cada build.
+- **Agregar un video:** buscá la pregunta con `"media": { "tipo": "youtube", "url": "" }` y pegá el link en `url`.
+
 ## Sonidos
 
 El sistema de sonido ya está conectado, pero no reproduce nada hasta que se le asignan archivos. Para agregarlos, copiá los audios en `public/sounds/` y completá sus rutas en `src/lib/sound.ts`.
@@ -54,7 +61,7 @@ El sistema de sonido ya está conectado, pero no reproduce nada hasta que se le 
 ## Hoja de ruta
 
 1. ✅ Base del proyecto, sistema visual y pantalla de inicio
-2. ⬜ Esquema y validación del JSON de preguntas (desde el PDF)
+2. ✅ Banco de preguntas (borrador de 48, en revisión) con esquema y validación
 3. ⬜ Ruleta
 4. ⬜ Pantalla de pregunta, multimedia y explicación
 5. ⬜ Malvinómetro, puntaje, rachas y resultado

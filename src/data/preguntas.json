@@ -1,0 +1,966 @@
+{
+  "version": 1,
+  "estado": "borrador para revisión",
+  "preguntas": [
+    {
+      "id": 1,
+      "categoria": "Historia",
+      "tipo": "multiple",
+      "pregunta": "¿Entre qué coronas se repartieron las zonas de navegación y conquista del Atlántico con el Tratado de Tordesillas de 1494?",
+      "opciones": [
+        "Castilla (junto con Aragón) y Portugal",
+        "Castilla y los Países Bajos",
+        "Portugal e Inglaterra",
+        "Inglaterra y Francia"
+      ],
+      "correcta": 0,
+      "explicacion": "Firmado el 7 de junio de 1494, trazó una línea a 370 leguas al oeste de Cabo Verde: lo que quedaba al oeste correspondía a Castilla y Aragón, y lo del este a Portugal. Es uno de los antecedentes de los títulos españoles sobre el Atlántico Sur.",
+      "dificultad": "Fácil",
+      "fuente": "Wikipedia, «Tratado de Tordesillas» – https://es.wikipedia.org/wiki/Tratado_de_Tordesillas",
+      "media": {
+        "tipo": "none",
+        "url": ""
+      }
+    },
+    {
+      "id": 2,
+      "categoria": "Historia",
+      "tipo": "multiple",
+      "pregunta": "¿Quién izó la bandera argentina en Puerto Soledad el 6 de noviembre de 1820?",
+      "opciones": [
+        "David Jewett",
+        "Luis Vernet",
+        "José María Pinedo",
+        "Guillermo Brown"
+      ],
+      "correcta": 0,
+      "explicacion": "Jewett era un marino estadounidense al servicio de las Provincias Unidas. Llegó al mando de la fragata Heroína y tomó posesión de las islas en nombre del gobierno de Buenos Aires.",
+      "dificultad": "Media",
+      "fuente": "Infobae, «Como hace 200 años: que la bandera argentina vuelva a flamear en Malvinas» (2020) – https://www.infobae.com/opinion/2020/11/06/como-hace-200-anos-que-la-bandera-argentina-vuelva-a-flamear-en-malvinas/",
+      "media": {
+        "tipo": "none",
+        "url": ""
+      }
+    },
+    {
+      "id": 3,
+      "categoria": "Historia",
+      "tipo": "multiple",
+      "pregunta": "¿Qué se conmemora en la Argentina cada 10 de junio?",
+      "opciones": [
+        "El Día del Veterano y de los Caídos en la Guerra de Malvinas",
+        "El Día de la Antártida Argentina",
+        "El Día de la Soberanía Nacional",
+        "El Día de la Afirmación de los Derechos Argentinos sobre las Malvinas, Islas y Sector Antártico"
+      ],
+      "correcta": 3,
+      "explicacion": "Recuerda el decreto del 10 de junio de 1829 que creó la Comandancia Política y Militar de las Islas Malvinas y nombró a Luis Vernet como su primer comandante.",
+      "dificultad": "Media",
+      "fuente": "Gobierno de Río Negro, «Día de la Afirmación de los Derechos Argentinos sobre las Islas Malvinas» – https://rionegro.gov.ar/articulo/54363/dia-de-la-afirmacion-de-los-derechos-argentinos-sobre-las-islas-malvinas",
+      "media": {
+        "tipo": "none",
+        "url": ""
+      }
+    },
+    {
+      "id": 4,
+      "categoria": "Historia",
+      "tipo": "multiple",
+      "pregunta": "En 1831, ¿qué buque de guerra de los Estados Unidos atacó el asentamiento argentino de Puerto Soledad?",
+      "opciones": [
+        "El submarino HMS Conqueror",
+        "La corbeta HMS Clio",
+        "La corbeta USS Lexington",
+        "La fragata Heroína"
+      ],
+      "correcta": 2,
+      "explicacion": "Al mando de Silas Duncan, la Lexington llegó como represalia porque Vernet había capturado barcos loberos estadounidenses que no respetaban sus normas de caza. Detuvo a varios pobladores y dejó la colonia muy debilitada.",
+      "dificultad": "Difícil",
+      "fuente": "Wikipedia, «Falklands Expedition» – https://en.wikipedia.org/wiki/Falklands_Expedition",
+      "media": {
+        "tipo": "none",
+        "url": ""
+      }
+    },
+    {
+      "id": 5,
+      "categoria": "Historia",
+      "tipo": "multiple",
+      "pregunta": "¿En qué año el Reino Unido ocupó por la fuerza las Malvinas y expulsó a las autoridades argentinas?",
+      "opciones": [
+        "1882",
+        "1820",
+        "1833",
+        "1810"
+      ],
+      "correcta": 2,
+      "explicacion": "El 3 de enero de 1833 la corbeta británica Clio, al mando de John Onslow, exigió arriar la bandera argentina. El comandante José María Pinedo se negó a arriarla, pero se retiró ante la superioridad militar británica.",
+      "dificultad": "Fácil",
+      "fuente": "Argentina.gob.ar – https://www.argentina.gob.ar/node/349169",
+      "media": {
+        "tipo": "none",
+        "url": ""
+      }
+    },
+    {
+      "id": 6,
+      "categoria": "Historia",
+      "tipo": "multiple",
+      "pregunta": "¿Qué intelectual publicó en 1910 «Les Îles Malouines», una obra clave para difundir los derechos argentinos sobre las islas?",
+      "opciones": [
+        "Domingo F. Sarmiento",
+        "José Ingenieros",
+        "Paul Groussac",
+        "Ricardo Rojas"
+      ],
+      "correcta": 2,
+      "explicacion": "Groussac, de origen francés y director de la Biblioteca Nacional, escribió el libro en francés. Es una de las obras de referencia sobre los fundamentos del reclamo argentino.",
+      "dificultad": "Difícil",
+      "fuente": "Wikipedia, «Paul Groussac» – https://en.wikipedia.org/wiki/Paul_Groussac",
+      "media": {
+        "tipo": "none",
+        "url": ""
+      }
+    },
+    {
+      "id": 7,
+      "categoria": "Historia",
+      "tipo": "multiple",
+      "pregunta": "¿Qué hizo el aviador civil Miguel Fitzgerald el 8 de septiembre de 1964?",
+      "opciones": [
+        "Rescató a un barco británico en el Atlántico Sur",
+        "Trazó el primer mapa aéreo del archipiélago",
+        "Voló solo hasta las islas, aterrizó y dejó una bandera argentina y una proclama",
+        "Inauguró los primeros vuelos regulares hacia las islas"
+      ],
+      "correcta": 2,
+      "explicacion": "Partió desde Río Gallegos en una avioneta Cessna 185 que llamó «Luis Vernet». Aterrizó en el hipódromo de Puerto Stanley, colocó una bandera, entregó una proclama en castellano y regresó al continente.",
+      "dificultad": "Difícil",
+      "fuente": "BAE Negocios, «Se cumplen 60 años del primer viaje histórico a Malvinas» (2024) – https://www.baenegocios.com/sociedad/Se-cumplen-60-anos-del-primer-viaje-historico-a-Malvinas-20240909-0010.html",
+      "media": {
+        "tipo": "none",
+        "url": ""
+      }
+    },
+    {
+      "id": 8,
+      "categoria": "Historia",
+      "tipo": "multiple",
+      "pregunta": "¿Cómo se llamó la acción de 1966 en la que un grupo de jóvenes desvió un avión de Aerolíneas Argentinas hacia Malvinas?",
+      "opciones": [
+        "Operación Algeciras",
+        "Operativo Soberanía",
+        "Operación Rosario",
+        "Operativo Cóndor"
+      ],
+      "correcta": 3,
+      "explicacion": "El 28 de septiembre de 1966, 18 jóvenes encabezados por Dardo Cabo desviaron un DC-4 de Aerolíneas, aterrizaron en el hipódromo de Puerto Stanley y desplegaron banderas argentinas.",
+      "dificultad": "Difícil",
+      "fuente": "Wikipedia, «Aerolíneas Argentinas Flight 648» – https://en.wikipedia.org/wiki/Aerol%C3%ADneas_Argentinas_Flight_648",
+      "media": {
+        "tipo": "none",
+        "url": ""
+      }
+    },
+    {
+      "id": 9,
+      "categoria": "Historia",
+      "tipo": "multiple",
+      "pregunta": "¿Qué reconoció la Resolución 2065 de la Asamblea General de la ONU, aprobada en 1965?",
+      "opciones": [
+        "La soberanía británica definitiva sobre las islas",
+        "Que las islas pasaban a ser administradas por la ONU",
+        "La independencia de las islas",
+        "La existencia de una disputa de soberanía entre la Argentina y el Reino Unido, e invitó a ambos a negociar"
+      ],
+      "correcta": 3,
+      "explicacion": "Aprobada el 16 de diciembre de 1965, invitó a ambos países a negociar una solución pacífica teniendo en cuenta los intereses de los habitantes de las islas.",
+      "dificultad": "Media",
+      "fuente": "Cancillería Argentina, «Período 1945-1965» – https://cancilleria.gob.ar/es/politica-exterior/cuestion-malvinas/antecedentes/periodo-1945-1965",
+      "media": {
+        "tipo": "none",
+        "url": ""
+      }
+    },
+    {
+      "id": 10,
+      "categoria": "Historia",
+      "tipo": "multiple",
+      "pregunta": "¿Cuántos días duró la Guerra de Malvinas de 1982?",
+      "opciones": [
+        "100 días",
+        "45 días",
+        "74 días",
+        "30 días"
+      ],
+      "correcta": 2,
+      "explicacion": "Comenzó el 2 de abril con la Operación Rosario y terminó con la rendición argentina del 14 de junio. Murieron 649 militares argentinos.",
+      "dificultad": "Fácil",
+      "fuente": "Wikipedia, «Guerra de las Malvinas» – https://es.wikipedia.org/wiki/Guerra_de_las_Malvinas",
+      "media": {
+        "tipo": "none",
+        "url": ""
+      }
+    },
+    {
+      "id": 11,
+      "categoria": "Historia",
+      "tipo": "multiple",
+      "pregunta": "El crucero ARA General Belgrano fue hundido el 2 de mayo de 1982. ¿Dónde se encontraba en ese momento?",
+      "opciones": [
+        "Dentro del puerto de Puerto Argentino",
+        "Dentro de la zona de exclusión, atacando a la flota británica",
+        "Fuera de la zona de exclusión de 200 millas fijada por el Reino Unido",
+        "En el Río de la Plata"
+      ],
+      "correcta": 2,
+      "explicacion": "Fue alcanzado por torpedos del submarino británico HMS Conqueror. Murieron 323 tripulantes, casi la mitad de los argentinos caídos en la guerra.",
+      "dificultad": "Difícil",
+      "fuente": "La Capital (Mar del Plata), «40 años del hundimiento del crucero General Belgrano» – https://www.lacapitalmdp.com/40-anos-del-hundimiento-del-crucero-general-belgrano-la-nobleza-de-un-buque-que-supo-ser-hogar/",
+      "media": {
+        "tipo": "none",
+        "url": ""
+      }
+    },
+    {
+      "id": 12,
+      "categoria": "Historia",
+      "tipo": "multiple",
+      "pregunta": "¿Qué se conmemora en la Argentina cada 2 de abril?",
+      "opciones": [
+        "El Día de la Soberanía Nacional",
+        "El Día de la Afirmación de los Derechos Argentinos sobre Malvinas",
+        "El Día del Veterano y de los Caídos en la Guerra de Malvinas",
+        "El Día de la Bandera"
+      ],
+      "correcta": 2,
+      "explicacion": "Lo establece la Ley 25.370. La fecha recuerda el inicio de la guerra en 1982 y homenajea a quienes combatieron y a quienes murieron.",
+      "dificultad": "Fácil",
+      "fuente": "Ley 25.370 (Argentina.gob.ar) – https://www.argentina.gob.ar/normativa/nacional/norma-65442/texto",
+      "media": {
+        "tipo": "none",
+        "url": ""
+      }
+    },
+    {
+      "id": 13,
+      "categoria": "Historia",
+      "tipo": "multiple",
+      "pregunta": "¿Qué establece la Constitución Nacional, desde la reforma de 1994, sobre las Malvinas?",
+      "opciones": [
+        "Que las islas son una provincia con gobierno propio",
+        "Nada: la Constitución no menciona las islas",
+        "Que la soberanía se definirá por un referéndum de los isleños",
+        "Que recuperarlas es un objetivo permanente e irrenunciable, respetando el modo de vida de sus habitantes y el derecho internacional"
+      ],
+      "correcta": 3,
+      "explicacion": "Lo dice la disposición transitoria primera, aprobada por unanimidad en la Convención Constituyente. También ratifica la soberanía sobre las Georgias del Sur, las Sandwich del Sur y los espacios marítimos correspondientes.",
+      "dificultad": "Media",
+      "fuente": "Perfil, Eduardo Barcesat, «La Constitución Nacional y la cuestión Islas Malvinas y del Atlántico Sur» – https://www.perfil.com/noticias/opinion/eduardo-barcesat-la-constitucion-nacional-y-la-cuestion-islas-malvinas-y-del-atlantico-sur.phtml",
+      "media": {
+        "tipo": "none",
+        "url": ""
+      }
+    },
+    {
+      "id": 14,
+      "categoria": "Historia",
+      "tipo": "multiple",
+      "pregunta": "¿Qué logró el Plan Proyecto Humanitario iniciado en 2017 en el cementerio de Darwin?",
+      "opciones": [
+        "Traspasar el cementerio a la administración argentina",
+        "Identificar a soldados argentinos que estaban enterrados sin nombre",
+        "Construir un nuevo cementerio en Puerto Argentino",
+        "Repatriar a la Argentina todos los restos"
+      ],
+      "correcta": 1,
+      "explicacion": "El Comité Internacional de la Cruz Roja coordinó el trabajo y el Equipo Argentino de Antropología Forense participó en él. En la primera etapa se identificó a 115 de los 122 soldados exhumados.",
+      "dificultad": "Media",
+      "fuente": "EAAF, «Identificamos a 115 soldados argentinos» – https://eaaf.org/?p=9111",
+      "media": {
+        "tipo": "none",
+        "url": ""
+      }
+    },
+    {
+      "id": 15,
+      "categoria": "Música",
+      "tipo": "multiple",
+      "pregunta": "¿Quién escribió la letra de la Marcha de las Malvinas?",
+      "opciones": [
+        "Atahualpa Yupanqui",
+        "José Tieri",
+        "León Gieco",
+        "Carlos Obligado"
+      ],
+      "correcta": 3,
+      "explicacion": "La letra es de Carlos Obligado y la música de José Tieri. La marcha surgió de un concurso impulsado por la Junta de Recuperación de las Malvinas, cuyos ganadores se anunciaron en enero de 1941.",
+      "dificultad": "Media",
+      "fuente": "Diario Uno, «La historia poco conocida de la Marcha de las Malvinas» – https://www.diariouno.com.ar/sociedad/la-historia-poco-conocida-la-emocionante-cancion-que-se-entona-todo-el-pais-la-marcha-malvinas-n1579293",
+      "media": {
+        "tipo": "youtube",
+        "url": ""
+      }
+    },
+    {
+      "id": 16,
+      "categoria": "Música",
+      "tipo": "multiple",
+      "pregunta": "La Marcha de las Malvinas nació de un concurso poético-musical. ¿Quién lo organizó?",
+      "opciones": [
+        "El Ministerio de Educación, en 1982",
+        "La Sociedad Argentina de Autores y Compositores (SADAIC)",
+        "El Ejército Argentino, durante la guerra de 1982",
+        "La Junta de Recuperación de las Malvinas"
+      ],
+      "correcta": 3,
+      "explicacion": "La Junta se creó durante la presidencia de Roberto M. Ortiz para difundir el reclamo de soberanía. La marcha es muy anterior a la guerra de 1982.",
+      "dificultad": "Difícil",
+      "fuente": "Diario Uno, «La historia poco conocida de la Marcha de las Malvinas» – https://www.diariouno.com.ar/sociedad/la-historia-poco-conocida-la-emocionante-cancion-que-se-entona-todo-el-pais-la-marcha-malvinas-n1579293",
+      "media": {
+        "tipo": "none",
+        "url": ""
+      }
+    },
+    {
+      "id": 17,
+      "categoria": "Música",
+      "tipo": "multiple",
+      "pregunta": "Durante la guerra de 1982, el gobierno militar prohibió pasar en las radios…",
+      "opciones": [
+        "Tango",
+        "Folklore",
+        "Música cantada en inglés",
+        "Música clásica"
+      ],
+      "correcta": 2,
+      "explicacion": "Las radios necesitaron llenar su programación con música en castellano, y eso impulsó al rock nacional: los discos de rock argentino pasaron de 37 en 1981 a 63 en 1982.",
+      "dificultad": "Media",
+      "fuente": "NPR (vía KIOS), «40 years ago, the Falkland/Malvinas war transformed Latin rock» – https://www.kios.org/2022-05-16/40-years-ago-the-falkland-malvinas-war-transformed-latin-rock",
+      "media": {
+        "tipo": "none",
+        "url": ""
+      }
+    },
+    {
+      "id": 18,
+      "categoria": "Música",
+      "tipo": "multiple",
+      "pregunta": "¿Dónde se realizó el Festival de la Solidaridad Latinoamericana del 16 de mayo de 1982?",
+      "opciones": [
+        "En el club Obras Sanitarias, en Buenos Aires",
+        "En el estadio Monumental",
+        "En el Luna Park",
+        "En el Teatro Colón"
+      ],
+      "correcta": 0,
+      "explicacion": "Asistieron más de 60.000 jóvenes y se transmitió en vivo. Tocaron, entre otros, Charly García, Luis Alberto Spinetta, León Gieco, Raúl Porchetto y Litto Nebbia.",
+      "dificultad": "Media",
+      "fuente": "Vía País, «Malvinas y el rock: el Festival de la Solidaridad Latinoamericana» – https://viapais.com.ar/documentos-malvinas/1271360-malvinas-y-el-rock-el-festival-de-la-solidaridad-latinoamericana/",
+      "media": {
+        "tipo": "none",
+        "url": ""
+      }
+    },
+    {
+      "id": 19,
+      "categoria": "Música",
+      "tipo": "multiple",
+      "pregunta": "¿Qué se juntaba en el Festival de la Solidaridad Latinoamericana de 1982?",
+      "opciones": [
+        "Ropa de abrigo y alimentos para los soldados en las islas",
+        "Firmas para pedir el fin de la guerra",
+        "Dinero para comprar armamento",
+        "Discos para las radios que no podían pasar música en inglés"
+      ],
+      "correcta": 0,
+      "explicacion": "Se recaudaron abrigos, cigarrillos y alimentos no perecederos. Según las crónicas, después se cargaron unos 50 camiones.",
+      "dificultad": "Fácil",
+      "fuente": "Vía País, «Malvinas y el rock: el Festival de la Solidaridad Latinoamericana» – https://viapais.com.ar/documentos-malvinas/1271360-malvinas-y-el-rock-el-festival-de-la-solidaridad-latinoamericana/",
+      "media": {
+        "tipo": "none",
+        "url": ""
+      }
+    },
+    {
+      "id": 20,
+      "categoria": "Música",
+      "tipo": "multiple",
+      "pregunta": "León Gieco compuso «Sólo le pido a Dios» en 1978, antes de Malvinas. ¿Ante qué situación la escribió?",
+      "opciones": [
+        "El regreso de la democracia",
+        "La posibilidad de una guerra con Chile",
+        "La Guerra de Malvinas",
+        "El Mundial 78"
+      ],
+      "correcta": 1,
+      "explicacion": "La canción, pacifista, había sido prohibida por la dictadura. Se cantó en el festival de 1982 y, en rechazo al uso que le dieron los militares, Gieco dejó de cantarla hasta 1985.",
+      "dificultad": "Media",
+      "fuente": "Vía País, «Malvinas y el rock: el Festival de la Solidaridad Latinoamericana» – https://viapais.com.ar/documentos-malvinas/1271360-malvinas-y-el-rock-el-festival-de-la-solidaridad-latinoamericana/",
+      "media": {
+        "tipo": "youtube",
+        "url": ""
+      }
+    },
+    {
+      "id": 21,
+      "categoria": "Música",
+      "tipo": "multiple",
+      "pregunta": "¿Quién compuso «No bombardeen Buenos Aires», escrita en los últimos días de la guerra?",
+      "opciones": [
+        "Charly García",
+        "Luis Alberto Spinetta",
+        "Fito Páez",
+        "Gustavo Cerati"
+      ],
+      "correcta": 0,
+      "explicacion": "Se publicó en 1982 en el disco «Yendo de la cama al living». Con ironía, retrata el clima de miedo y propaganda que se vivía en la ciudad durante la guerra.",
+      "dificultad": "Fácil",
+      "fuente": "La Nación, «La canción que Charly García escribió en plena guerra de Malvinas» – https://www.lanacion.com.ar/espectaculos/musica/paranoia-o-posibilidad-la-cancion-que-charly-garcia-escribio-en-plena-guerra-de-malvinas-y-que-nid04042022/",
+      "media": {
+        "tipo": "youtube",
+        "url": ""
+      }
+    },
+    {
+      "id": 22,
+      "categoria": "Música",
+      "tipo": "multiple",
+      "pregunta": "En «Reina Madre» (1983), Raúl Porchetto canta desde el punto de vista de…",
+      "opciones": [
+        "La reina Isabel II",
+        "Un piloto argentino",
+        "Un soldado inglés que le escribe a su madre",
+        "Un soldado argentino en las trincheras"
+      ],
+      "correcta": 2,
+      "explicacion": "La canción es una carta ficticia en la que un soldado británico cuestiona el sentido de la guerra. El disco «Reina madre» fue uno de los más vendidos del rock argentino.",
+      "dificultad": "Media",
+      "fuente": "Diario Jornada, «Porchetto, el rock y Malvinas: cantar y contar la historia» – https://diariojornada.com.ar/391453/espectaculos/porchetto_el_rock_y_malvinas_cantar_y_contar_la_historia",
+      "media": {
+        "tipo": "youtube",
+        "url": ""
+      }
+    },
+    {
+      "id": 23,
+      "categoria": "Música",
+      "tipo": "multiple",
+      "pregunta": "¿Qué banda británica publicó en 1983 «The Final Cut», un disco contra la guerra escrito por Roger Waters?",
+      "opciones": [
+        "Queen",
+        "Pink Floyd",
+        "Iron Maiden",
+        "The Rolling Stones"
+      ],
+      "correcta": 1,
+      "explicacion": "Waters reescribió el disco cuando empezó la guerra. Lo pensó como una obra antibélica y criticó la respuesta del gobierno de Margaret Thatcher.",
+      "dificultad": "Difícil",
+      "fuente": "Wikipedia, «The Final Cut (album)» – https://en.wikipedia.org/wiki/The_Final_Cut_(album)",
+      "media": {
+        "tipo": "youtube",
+        "url": ""
+      }
+    },
+    {
+      "id": 24,
+      "categoria": "Música",
+      "tipo": "multiple",
+      "pregunta": "La canción británica «Shipbuilding» (1982) habla de la guerra. ¿Qué critica?",
+      "opciones": [
+        "Es un homenaje al crucero General Belgrano",
+        "Es el himno oficial de la Marina Real",
+        "Que la guerra dio trabajo a los astilleros mientras los hijos de esas ciudades iban a combatir",
+        "Celebra la victoria británica en las islas"
+      ],
+      "correcta": 2,
+      "explicacion": "La letra es de Elvis Costello y la música de Clive Langer. La grabó primero Robert Wyatt en 1982. Señala la ironía de que zonas de astilleros como Belfast o Merseyside recuperaron trabajo construyendo barcos para una guerra a la que enviaban a sus propios jóvenes.",
+      "dificultad": "Experto",
+      "fuente": "Wikipedia, «Shipbuilding (song)» – https://en.wikipedia.org/wiki/Shipbuilding_(song)",
+      "media": {
+        "tipo": "youtube",
+        "url": ""
+      }
+    },
+    {
+      "id": 25,
+      "categoria": "Música",
+      "tipo": "multiple",
+      "pregunta": "¿Quiénes compusieron «La hermanita perdida» (1971), canción folklórica sobre las Malvinas?",
+      "opciones": [
+        "Horacio Guarany y Los Chalchaleros",
+        "Carlos Obligado y José Tieri",
+        "Mercedes Sosa y León Gieco",
+        "Atahualpa Yupanqui (letra) y Ariel Ramírez (música)"
+      ],
+      "correcta": 3,
+      "explicacion": "Es anterior a la guerra: muestra que el reclamo por las islas ya estaba presente en la música popular mucho antes de 1982.",
+      "dificultad": "Difícil",
+      "fuente": "La Voz, «15 canciones sobre Malvinas: folklore, tango y rock» – https://grupoclarin-la-voz-prod.cdn.arcpublishing.com/vos/musica/15-canciones-sobre-malvinas-folklore-tango-y-rock-de-la-sole-a-charly-garcia",
+      "media": {
+        "tipo": "youtube",
+        "url": ""
+      }
+    },
+    {
+      "id": 26,
+      "categoria": "Música",
+      "tipo": "multiple",
+      "pregunta": "¿Qué banda punk argentina publicó en 1985 «Comunicado Nº 166», una crítica furiosa a la guerra?",
+      "opciones": [
+        "Los Violadores",
+        "Sumo",
+        "Virus",
+        "Attaque 77"
+      ],
+      "correcta": 0,
+      "explicacion": "Forma parte del disco «¿Y ahora qué pasa, eh?» y es una de las críticas más directas a la guerra desde el punk argentino.",
+      "dificultad": "Experto",
+      "fuente": "La Voz, «15 canciones sobre Malvinas: folklore, tango y rock» – https://grupoclarin-la-voz-prod.cdn.arcpublishing.com/vos/musica/15-canciones-sobre-malvinas-folklore-tango-y-rock-de-la-sole-a-charly-garcia",
+      "media": {
+        "tipo": "youtube",
+        "url": ""
+      }
+    },
+    {
+      "id": 27,
+      "categoria": "Cine",
+      "tipo": "multiple",
+      "pregunta": "¿Quién dirigió la película «Iluminados por el fuego» (2005)?",
+      "opciones": [
+        "Lucrecia Martel",
+        "Tristán Bauer",
+        "Pablo Trapero",
+        "Juan José Campanella"
+      ],
+      "correcta": 1,
+      "explicacion": "La protagoniza Gastón Pauls. Transcurre mayormente durante la crisis de 2001, con recuerdos de la guerra, y aborda las secuelas que la guerra dejó en los ex combatientes.",
+      "dificultad": "Media",
+      "fuente": "Wikipedia, «Blessed by Fire» – https://en.wikipedia.org/wiki/Blessed_by_Fire",
+      "media": {
+        "tipo": "youtube",
+        "url": ""
+      }
+    },
+    {
+      "id": 28,
+      "categoria": "Cine",
+      "tipo": "multiple",
+      "pregunta": "«Iluminados por el fuego» está basada en el libro de…",
+      "opciones": [
+        "Osvaldo Bayer",
+        "Edgardo Esteban, ex combatiente de Malvinas",
+        "Daniel Kon",
+        "Rodolfo Fogwill"
+      ],
+      "correcta": 1,
+      "explicacion": "Esteban combatió en las islas y luego fue periodista. Escribió el libro junto con Gustavo Romero Borri, y Tristán Bauer lo llevó al cine.",
+      "dificultad": "Difícil",
+      "fuente": "Wikipedia, «Blessed by Fire» – https://en.wikipedia.org/wiki/Blessed_by_Fire",
+      "media": {
+        "tipo": "none",
+        "url": ""
+      }
+    },
+    {
+      "id": 29,
+      "categoria": "Cine",
+      "tipo": "multiple",
+      "pregunta": "¿Qué premio internacional ganó «Iluminados por el fuego» en 2006?",
+      "opciones": [
+        "El Goya a la mejor película de habla hispana",
+        "La Palma de Oro de Cannes",
+        "El Óscar a la mejor película extranjera",
+        "El Oso de Oro de Berlín"
+      ],
+      "correcta": 0,
+      "explicacion": "Lo recibió en la 20.ª edición de los Premios Goya, que entrega la Academia de Cine de España.",
+      "dificultad": "Difícil",
+      "fuente": "Emol, «Iluminados por el fuego gana Goya a mejor película de habla hispana» (2006) – https://www.emol.com/noticias/magazine/2006/01/29/209454/iluminados-por-el-fuego-gana-goya-a-mejor-pelicula-de-habla-hispana.html",
+      "media": {
+        "tipo": "none",
+        "url": ""
+      }
+    },
+    {
+      "id": 30,
+      "categoria": "Cine",
+      "tipo": "multiple",
+      "pregunta": "¿Quién dirigió «Los chicos de la guerra» (1984)?",
+      "opciones": [
+        "Bebe Kamin",
+        "Tristán Bauer",
+        "Luis Puenzo",
+        "Adolfo Aristarain"
+      ],
+      "correcta": 0,
+      "explicacion": "La película sigue a tres jóvenes de distintas clases sociales que son convocados y se encuentran en las islas. La vieron más de 700.000 personas y marcó durante años la imagen del soldado de Malvinas en la ficción.",
+      "dificultad": "Difícil",
+      "fuente": "La Izquierda Diario, «Malvinas en el cine: la imagen del soldado y el combate» – https://www.izquierdadiario.es/Malvinas-en-el-cine-la-imagen-del-soldado-y-el-combate",
+      "media": {
+        "tipo": "youtube",
+        "url": ""
+      }
+    },
+    {
+      "id": 31,
+      "categoria": "Cine",
+      "tipo": "multiple",
+      "pregunta": "¿Qué propone «Teatro de guerra» (2018), de Lola Arias?",
+      "opciones": [
+        "Que veteranos argentinos y británicos reconstruyan juntos sus experiencias de la guerra",
+        "Contar la historia del crucero General Belgrano con animación",
+        "Seguir a un periodista que investiga la rendición",
+        "Recrear la guerra con actores profesionales y efectos especiales"
+      ],
+      "correcta": 0,
+      "explicacion": "Treinta y cinco años después de la guerra, ex combatientes de ambos países recuerdan, debaten y hasta recrean escenas frente a la cámara. Se estrenó en el Festival de Berlín.",
+      "dificultad": "Media",
+      "fuente": "Berlinale 2018, «Teatro de guerra» – https://berlinale.de/en/2018/programme/201812106.html",
+      "media": {
+        "tipo": "youtube",
+        "url": ""
+      }
+    },
+    {
+      "id": 32,
+      "categoria": "Cine",
+      "tipo": "multiple",
+      "pregunta": "El título de la película «Soldado argentino sólo conocido por Dios» (2016) remite a…",
+      "opciones": [
+        "Una estrofa de la Marcha de las Malvinas",
+        "La inscripción de las tumbas sin identificar del cementerio de Darwin",
+        "La última carta de un soldado a su familia",
+        "El lema oficial del Ejército Argentino"
+      ],
+      "correcta": 1,
+      "explicacion": "Durante décadas, muchas tumbas de soldados argentinos en Darwin llevaron esa leyenda porque no se sabía quiénes eran. La película la dirigió Rodrigo Fernández Engler.",
+      "dificultad": "Difícil",
+      "fuente": "DEF Online, «Los soldados argentinos “solo conocidos por Dios”» – https://defonline.com.ar/defensa/los-soldados-argentinos-solo-conocidos-por-dios/ ; La Izquierda Diario, «Malvinas en el cine» – https://www.izquierdadiario.es/Malvinas-en-el-cine-la-imagen-del-soldado-y-el-combate",
+      "media": {
+        "tipo": "youtube",
+        "url": ""
+      }
+    },
+    {
+      "id": 33,
+      "categoria": "Cine",
+      "tipo": "multiple",
+      "pregunta": "¿Qué documental de 1966, filmado en las islas para el noticiero Telenoche, dirigió Raymundo Gleyzer?",
+      "opciones": [
+        "La forma exacta de las islas",
+        "Malvinas, historia de traiciones",
+        "Hundan al Belgrano",
+        "Nuestras islas Malvinas"
+      ],
+      "correcta": 3,
+      "explicacion": "Es uno de los primeros registros audiovisuales argentinos filmados en las islas, mucho antes de la guerra. Años después, otro documental volvió a usar esas imágenes.",
+      "dificultad": "Experto",
+      "fuente": "La Izquierda Diario, «Malvinas en el cine: la imagen del soldado y el combate» – https://www.izquierdadiario.es/Malvinas-en-el-cine-la-imagen-del-soldado-y-el-combate",
+      "media": {
+        "tipo": "none",
+        "url": ""
+      }
+    },
+    {
+      "id": 34,
+      "categoria": "Cine",
+      "tipo": "multiple",
+      "pregunta": "El documental «Malvinas, historia de traiciones» (1984), de Jorge Denti, fue producido para…",
+      "opciones": [
+        "El Instituto Nacional de Cine argentino",
+        "La BBC, por encargo del gobierno británico",
+        "Channel Four, un canal de la televisión británica",
+        "Canal 7 de Buenos Aires"
+      ],
+      "correcta": 2,
+      "explicacion": "Analiza el colonialismo británico y el papel de la dictadura argentina. En la Argentina se emitió por Canal Encuentro en 2012.",
+      "dificultad": "Experto",
+      "fuente": "La Izquierda Diario, «Malvinas en el cine: la imagen del soldado y el combate» – https://www.izquierdadiario.es/Malvinas-en-el-cine-la-imagen-del-soldado-y-el-combate",
+      "media": {
+        "tipo": "none",
+        "url": ""
+      }
+    },
+    {
+      "id": 35,
+      "categoria": "Cine",
+      "tipo": "multiple",
+      "pregunta": "¿Sobre qué hecho trata el documental «Hundan al Belgrano» (1996), de Federico Urioste?",
+      "opciones": [
+        "El hundimiento del crucero ARA General Belgrano",
+        "La rendición de Puerto Argentino",
+        "La batalla de Pradera del Ganso",
+        "El Operativo Cóndor de 1966"
+      ],
+      "correcta": 0,
+      "explicacion": "Es un documental histórico-político sobre el ataque al crucero, en el que murieron 323 tripulantes.",
+      "dificultad": "Fácil",
+      "fuente": "La Izquierda Diario, «Malvinas en el cine: la imagen del soldado y el combate» – https://www.izquierdadiario.es/Malvinas-en-el-cine-la-imagen-del-soldado-y-el-combate",
+      "media": {
+        "tipo": "none",
+        "url": ""
+      }
+    },
+    {
+      "id": 36,
+      "categoria": "Cine",
+      "tipo": "multiple",
+      "pregunta": "¿De qué trata el documental «La forma exacta de las islas» (2012)?",
+      "opciones": [
+        "Un joven investigador viaja a las islas, conoce a dos ex combatientes y filma sus historias",
+        "Cuenta la vida de los pobladores británicos en 1833",
+        "Reconstruye la batalla de Monte Longdon con actores",
+        "Es una animación sobre el mapa del Atlántico Sur"
+      ],
+      "correcta": 0,
+      "explicacion": "Lo dirigieron Daniel Casabé y Edgardo Dieleke. Explora cómo se construyen los recuerdos y las imágenes de las islas.",
+      "dificultad": "Experto",
+      "fuente": "La Izquierda Diario, «Malvinas en el cine: la imagen del soldado y el combate» – https://www.izquierdadiario.es/Malvinas-en-el-cine-la-imagen-del-soldado-y-el-combate",
+      "media": {
+        "tipo": "youtube",
+        "url": ""
+      }
+    },
+    {
+      "id": 37,
+      "categoria": "Fútbol",
+      "tipo": "multiple",
+      "pregunta": "¿En qué Mundial la Argentina le ganó 2-1 a Inglaterra con dos goles de Diego Maradona?",
+      "opciones": [
+        "México 1986",
+        "Italia 1990",
+        "Francia 1998",
+        "Argentina 1978"
+      ],
+      "correcta": 0,
+      "explicacion": "Fue el 22 de junio de 1986 en el Estadio Azteca, por los cuartos de final. Inglaterra descontó con un gol de Gary Lineker.",
+      "dificultad": "Fácil",
+      "fuente": "Noticias NQN, «22 de junio de 1986: el día que Maradona hizo historia» – https://www.noticiasnqn.com.ar/noticias/2025/06/22/315520-22-de-junio-de-1986-el-dia-que-maradona-hizo-historia-con-la-mano-de-dios-y-el-gol-del-siglo",
+      "media": {
+        "tipo": "youtube",
+        "url": ""
+      }
+    },
+    {
+      "id": 38,
+      "categoria": "Fútbol",
+      "tipo": "multiple",
+      "pregunta": "¿Cómo se conoce el primer gol de Maradona a Inglaterra en 1986?",
+      "opciones": [
+        "La palomita de Diego",
+        "El gol del siglo",
+        "El gol olímpico",
+        "La mano de Dios"
+      ],
+      "correcta": 3,
+      "explicacion": "Maradona convirtió con la mano y el árbitro lo validó. Cuatro minutos después marcó el llamado «gol del siglo».",
+      "dificultad": "Fácil",
+      "fuente": "Noticias NQN, «22 de junio de 1986: el día que Maradona hizo historia» – https://www.noticiasnqn.com.ar/noticias/2025/06/22/315520-22-de-junio-de-1986-el-dia-que-maradona-hizo-historia-con-la-mano-de-dios-y-el-gol-del-siglo",
+      "media": {
+        "tipo": "none",
+        "url": ""
+      }
+    },
+    {
+      "id": 39,
+      "categoria": "Fútbol",
+      "tipo": "multiple",
+      "pregunta": "¿Qué relator inmortalizó el «gol del siglo» de 1986 llamando a Maradona «barrilete cósmico»?",
+      "opciones": [
+        "Mariano Closs",
+        "Fernando Niembro",
+        "José María Muñoz",
+        "Víctor Hugo Morales"
+      ],
+      "correcta": 3,
+      "explicacion": "Su relato quedó como parte de la memoria colectiva tanto como el gol mismo, en el que Maradona dejó atrás a varios rivales ingleses.",
+      "dificultad": "Media",
+      "fuente": "Noticias NQN, «22 de junio de 1986: el día que Maradona hizo historia» – https://www.noticiasnqn.com.ar/noticias/2025/06/22/315520-22-de-junio-de-1986-el-dia-que-maradona-hizo-historia-con-la-mano-de-dios-y-el-gol-del-siglo",
+      "media": {
+        "tipo": "youtube",
+        "url": ""
+      }
+    },
+    {
+      "id": 40,
+      "categoria": "Fútbol",
+      "tipo": "multiple",
+      "pregunta": "¿Por qué el Argentina-Inglaterra de 1986 tuvo para muchos un significado que iba más allá del fútbol?",
+      "opciones": [
+        "Era el primer partido de la historia entre ambas selecciones",
+        "Se jugó cuatro años después de la guerra y muchos lo vivieron como una revancha simbólica",
+        "Se jugó en Londres, frente a la reina",
+        "Fue la final del Mundial"
+      ],
+      "correcta": 1,
+      "explicacion": "En la posguerra, el partido se cargó de sentidos vinculados a Malvinas. No fue la final: Argentina luego venció a Bélgica en semifinales y a Alemania en la final.",
+      "dificultad": "Media",
+      "fuente": "Noticias NQN, «22 de junio de 1986: el día que Maradona hizo historia» – https://www.noticiasnqn.com.ar/noticias/2025/06/22/315520-22-de-junio-de-1986-el-dia-que-maradona-hizo-historia-con-la-mano-de-dios-y-el-gol-del-siglo",
+      "media": {
+        "tipo": "none",
+        "url": ""
+      }
+    },
+    {
+      "id": 41,
+      "categoria": "Fútbol",
+      "tipo": "multiple",
+      "pregunta": "En el Mundial de 1966, ¿qué capitán argentino fue expulsado ante Inglaterra en Wembley, en un episodio que llevó a crear las tarjetas amarilla y roja?",
+      "opciones": [
+        "Omar Sívori",
+        "Alfredo Di Stéfano",
+        "Silvio Marzolini",
+        "Antonio Rattín"
+      ],
+      "correcta": 3,
+      "explicacion": "El árbitro alemán Rudolf Kreitlein lo expulsó sin que pudieran entenderse por el idioma. Para evitar esas confusiones, el inglés Ken Aston propuso las tarjetas, que se usaron por primera vez en México 1970.",
+      "dificultad": "Difícil",
+      "fuente": "LM Neuquén, «Historias mundiales: la polémica expulsión de Rattín» – https://www.lmneuquen.com/deportes/historias-mundiales-la-polemica-expulsion-rattin-la-que-se-inventaron-las-tarjetas-n958822",
+      "media": {
+        "tipo": "none",
+        "url": ""
+      }
+    },
+    {
+      "id": 42,
+      "categoria": "Fútbol",
+      "tipo": "multiple",
+      "pregunta": "En Francia 1998, la Argentina eliminó a Inglaterra en octavos de final. ¿Cómo se definió el partido?",
+      "opciones": [
+        "1-0 con gol de Batistuta",
+        "2-1 en el tiempo regular",
+        "Por penales (4-3), tras empatar 2-2",
+        "Con un gol de oro en el alargue"
+      ],
+      "correcta": 2,
+      "explicacion": "Se jugó en Saint-Étienne el 30 de junio de 1998. Carlos Roa atajó dos penales, y David Beckham fue expulsado tras una infracción contra Diego Simeone.",
+      "dificultad": "Media",
+      "fuente": "FIFA, «Argentina vuelve a frustrar a Inglaterra» – https://inside.fifa.com/es/tournaments/mens/worldcup/1998france/news/worldcupathome-argentina-vuelve-a-frustrar-a-inglaterra",
+      "media": {
+        "tipo": "youtube",
+        "url": ""
+      }
+    },
+    {
+      "id": 43,
+      "categoria": "Fútbol",
+      "tipo": "multiple",
+      "pregunta": "¿Quién hizo el gol con el que Inglaterra le ganó 1-0 a la Argentina en el Mundial de Corea-Japón 2002?",
+      "opciones": [
+        "Alan Shearer",
+        "Frank Lampard",
+        "Michael Owen",
+        "David Beckham, de penal"
+      ],
+      "correcta": 3,
+      "explicacion": "Fue en la fase de grupos, a los 44 minutos del primer tiempo. Cuatro años antes, en Francia 1998, Beckham había sido expulsado ante la Argentina.",
+      "dificultad": "Media",
+      "fuente": "Emol, «Argentina e Inglaterra: los cruces mundiales» (2026) – https://www.emol.com/noticias/Deportes/2026/07/14/1205594/argentina-inglaterra-cruces-mundiales.html",
+      "media": {
+        "tipo": "none",
+        "url": ""
+      }
+    },
+    {
+      "id": 44,
+      "categoria": "Fútbol",
+      "tipo": "multiple",
+      "pregunta": "En la semifinal del Mundial 2026, la Argentina le ganó 2-1 a Inglaterra en Atlanta. ¿Quién convirtió el gol del triunfo?",
+      "opciones": [
+        "Lionel Messi",
+        "Julián Álvarez",
+        "Lautaro Martínez",
+        "Enzo Fernández"
+      ],
+      "correcta": 2,
+      "explicacion": "Fue el 15 de julio de 2026. Inglaterra se adelantó con un gol de Anthony Gordon, Enzo Fernández empató a los 85 minutos y Lautaro Martínez marcó el 2-1 en tiempo de descuento. Los dos goles argentinos tuvieron asistencia de Messi.",
+      "dificultad": "Media",
+      "fuente": "La Nación, «Argentina venció 2-1 a Inglaterra por el Mundial 2026» – https://www.lanacion.com.ar/deportes/canchallena/argentina-vencio-2-1-a-inglaterra-por-el-mundial-2026-nid15072026/",
+      "media": {
+        "tipo": "youtube",
+        "url": ""
+      }
+    },
+    {
+      "id": 45,
+      "categoria": "Fútbol",
+      "tipo": "multiple",
+      "pregunta": "¿Por qué la FIFA abrió un expediente disciplinario contra la AFA después de la semifinal del Mundial 2026 ante Inglaterra?",
+      "opciones": [
+        "Por incidentes entre hinchas en el estadio",
+        "Por usar una camiseta no autorizada",
+        "Porque los jugadores mostraron una bandera con la frase «Las Malvinas son argentinas»",
+        "Por insultos al árbitro del partido"
+      ],
+      "correcta": 2,
+      "explicacion": "La FIFA abrió el expediente el 29 de julio de 2026 por la exhibición de mensajes que consideró inapropiados. Hay un antecedente: en 2014 multó a la AFA por una bandera similar.",
+      "dificultad": "Difícil",
+      "fuente": "Chequeado, «Qué se sabe sobre las posibles sanciones a la Selección por exhibir la bandera de Malvinas» – https://chequeado.com/el-explicador/que-se-sabe-sobre-las-posibles-sanciones-a-la-seleccion-argentina-por-exhibir-la-bandera-de-malvinas-y-cuales-son-los-antecedentes/",
+      "media": {
+        "tipo": "none",
+        "url": ""
+      }
+    },
+    {
+      "id": 46,
+      "categoria": "Fútbol",
+      "tipo": "multiple",
+      "pregunta": "En 2014, la Selección posó con una bandera de «Las Malvinas son argentinas» antes de un amistoso, y la FIFA multó a la AFA. ¿Contra quién se jugó?",
+      "opciones": [
+        "Inglaterra",
+        "Brasil",
+        "Eslovenia",
+        "Chile"
+      ],
+      "correcta": 2,
+      "explicacion": "Fue el 7 de junio de 2014 en el Estadio Único de La Plata, días antes del Mundial de Brasil. La multa fue de 33.000 dólares.",
+      "dificultad": "Experto",
+      "fuente": "Chequeado, «Qué se sabe sobre las posibles sanciones a la Selección por exhibir la bandera de Malvinas» – https://chequeado.com/el-explicador/que-se-sabe-sobre-las-posibles-sanciones-a-la-seleccion-argentina-por-exhibir-la-bandera-de-malvinas-y-cuales-son-los-antecedentes/",
+      "media": {
+        "tipo": "none",
+        "url": ""
+      }
+    },
+    {
+      "id": 47,
+      "categoria": "Fútbol",
+      "tipo": "multiple",
+      "pregunta": "¿Qué club argentino juega de local en el estadio «Islas Malvinas»?",
+      "opciones": [
+        "Huracán",
+        "All Boys",
+        "Arsenal de Sarandí",
+        "Quilmes"
+      ],
+      "correcta": 1,
+      "explicacion": "El estadio, ubicado en Monte Castro, se inauguró en 1963 y recibió el nombre de Islas Malvinas en 1982, como homenaje tras la guerra.",
+      "dificultad": "Media",
+      "fuente": "Canal 26, «El secreto detrás de All Boys, el club de Floresta que convirtió a Malvinas en su bandera» – https://www.canal26.com/historia/2026/07/28/el-secreto-detras-de-all-boys-el-club-de-floresta-que-convirtio-a-malvinas-en-su-bandera/",
+      "media": {
+        "tipo": "none",
+        "url": ""
+      }
+    },
+    {
+      "id": 48,
+      "categoria": "Fútbol",
+      "tipo": "multiple",
+      "pregunta": "El estadio Malvinas Argentinas de Mendoza se construyó para el Mundial 78 con otro nombre. ¿Cuál era?",
+      "opciones": [
+        "Estadio San Martín",
+        "Estadio Mundialista Andino",
+        "Estadio Ciudad de Mendoza",
+        "Estadio Libertador General San Martín de Cuyo"
+      ],
+      "correcta": 2,
+      "explicacion": "Se inauguró el 14 de mayo de 1978 y luego se lo renombró en homenaje a los caídos en la Guerra de Malvinas.",
+      "dificultad": "Difícil",
+      "fuente": "Gobierno de Mendoza, «El Malvinas, un paseo mundial imperdible» – https://www.mendoza.gov.ar/prensa/el-malvinas-un-paseo-mundial-imperdible/",
+      "media": {
+        "tipo": "none",
+        "url": ""
+      }
+    }
+  ]
+}

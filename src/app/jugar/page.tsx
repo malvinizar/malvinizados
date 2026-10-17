@@ -1,6 +1,12 @@
 import { ComingSoon } from "@/components/layout/ComingSoon";
+import { PREGUNTAS } from "@/features/questions/bank";
 
-// Provisorio: la ruleta y las preguntas llegan en los próximos pasos.
+// Provisorio: la ruleta llega en el próximo paso.
 export default function JugarPage() {
-  return <ComingSoon title="¡Muy pronto!" text="Estamos preparando la ruleta y las preguntas." />;
+  return (
+    <ComingSoon
+      title="¡Muy pronto!"
+      text={`Ya tenemos ${PREGUNTAS.length} preguntas listas. Estamos terminando la ruleta.`}
+    />
+  );
 }
