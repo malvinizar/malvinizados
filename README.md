@@ -17,9 +17,15 @@ npm run dev
 
 Abrí http://localhost:3000.
 
-
-
 Otros comandos: `npm run build`, `npm run lint`, `npm run typecheck`.
+
+## Publicación
+
+El sitio se publica solo en **GitHub Pages** cada vez que se sube un cambio a `main`. El proceso está en `.github/workflows/pages.yml`.
+
+https://malvinizar.github.io/malvinizados/
+
+Se exporta como sitio estático (`output: "export"`), así que no necesita servidor.
 
 ## Estructura
 
