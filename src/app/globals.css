@@ -1,0 +1,231 @@
+@import "tailwindcss";
+
+/* ------------------------------------------------------------------
+   Tokens del sistema visual MalvinizAR
+   Tomados de la referencia: fondo azul marino, tarjetas crema con borde
+   dorado, cintas celeste y blanco, Sol de Mayo dorado y botones 3D.
+   ------------------------------------------------------------------ */
+
+@theme inline {
+  --font-display: var(--font-lilita), "Arial Rounded MT Bold", system-ui, sans-serif;
+  --font-sans: var(--font-nunito), system-ui, sans-serif;
+}
+
+@theme {
+  /* Fondo */
+  --color-navy-950: #0a1a3a;
+  --color-navy-900: #0f2550;
+  --color-navy-800: #17346a;
+  --color-navy-700: #1f4687;
+  --color-navy-600: #2b5aa6;
+
+  /* Tarjetas */
+  --color-cream: #fbf0d9;
+  --color-cream-200: #f3e2bd;
+  --color-cream-border: #d9b36a;
+  --color-cream-edge: #b98a3e;
+  --color-ink: #4a2f14;
+  --color-ink-soft: #8a6a45;
+
+  /* Oro / Sol de Mayo */
+  --color-gold-light: #ffe07a;
+  --color-gold: #f5b921;
+  --color-gold-dark: #c47f08;
+  --color-gold-ink: #3a1f05;
+
+  /* Celeste (cintas) */
+  --color-celeste-light: #d8f0fd;
+  --color-celeste: #7ec8f0;
+  --color-celeste-dark: #3b8fc4;
+
+  /* Categorías */
+  --color-historia: #3fa9f5;
+  --color-historia-dark: #1f74b8;
+  --color-musica: #8e5bd9;
+  --color-musica-dark: #5e339f;
+  --color-cine: #e8483b;
+  --color-cine-dark: #a92b21;
+  --color-futbol: #2db34a;
+  --color-futbol-dark: #1d7a31;
+
+  /* Animaciones */
+  --animate-spin-slow: spin 90s linear infinite;
+  --animate-bob: bob 3.2s ease-in-out infinite;
+  --animate-pulse-soft: pulse-soft 1.8s ease-in-out infinite;
+
+  @keyframes bob {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-6px); }
+  }
+
+  @keyframes pulse-soft {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.04); }
+  }
+}
+
+/* ------------------------------------------------------------------
+   Base
+   ------------------------------------------------------------------ */
+
+html {
+  background: var(--color-navy-900);
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Sin fondo propio en body: el fondo animado (z-index negativo) quedaría tapado. */
+body {
+  color: white;
+}
+
+/* ------------------------------------------------------------------
+   Texto con contorno (logo y títulos estilo juego)
+   ------------------------------------------------------------------ */
+
+.text-game {
+  font-family: var(--font-display);
+  letter-spacing: 0.01em;
+  -webkit-text-stroke: var(--stroke-w, 6px) var(--stroke-c, var(--color-gold-ink));
+  paint-order: stroke fill;
+  text-shadow:
+    0 var(--drop, 5px) 0 var(--stroke-c, var(--color-gold-ink)),
+    0 calc(var(--drop, 5px) * 2) 16px rgba(0, 0, 0, 0.45);
+}
+
+/* ------------------------------------------------------------------
+   Botón 3D (inspirado en los botones del menú de la referencia)
+   ------------------------------------------------------------------ */
+
+.btn3d {
+  --face-light: #ffe680;
+  --face: #f8c21c;
+  --edge: #b9760a;
+  --label: #6a2c00;
+  --label-shadow: rgba(255, 255, 255, 0.45);
+
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  width: 100%;
+  border-radius: 1.1rem;
+  border: 3px solid var(--edge);
+  background: linear-gradient(180deg, var(--face-light) 0%, var(--face) 55%);
+  color: var(--label);
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  text-shadow: 0 2px 0 var(--label-shadow);
+  box-shadow:
+    0 6px 0 var(--edge),
+    0 12px 22px -8px rgba(0, 0, 0, 0.55),
+    inset 0 2px 0 rgba(255, 255, 255, 0.55);
+  transform: translateY(0);
+  transition:
+    transform 90ms ease-out,
+    box-shadow 90ms ease-out,
+    filter 150ms ease-out;
+  user-select: none;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+/* Brillo superior */
+.btn3d::before {
+  content: "";
+  position: absolute;
+  inset: 3px 8px auto 8px;
+  height: 38%;
+  border-radius: 0.8rem 0.8rem 1.4rem 1.4rem;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.55), rgba(255, 255, 255, 0));
+  pointer-events: none;
+}
+
+.btn3d:hover {
+  filter: brightness(1.05);
+}
+
+.btn3d:active {
+  transform: translateY(5px);
+  box-shadow:
+    0 1px 0 var(--edge),
+    0 4px 10px -6px rgba(0, 0, 0, 0.55),
+    inset 0 2px 0 rgba(255, 255, 255, 0.4);
+}
+
+.btn3d:focus-visible {
+  outline: 4px solid white;
+  outline-offset: 4px;
+}
+
+.btn3d[aria-disabled="true"],
+.btn3d:disabled {
+  filter: grayscale(0.7) brightness(0.9);
+  cursor: not-allowed;
+}
+
+.btn3d-celeste {
+  --face-light: #c9ecff;
+  --face: #6fc3f2;
+  --edge: #2f7fb5;
+  --label: #0f2f5c;
+}
+
+.btn3d-green {
+  --face-light: #8ee68d;
+  --face: #3cc04f;
+  --edge: #1f7d2f;
+  --label: #ffffff;
+  --label-shadow: rgba(10, 60, 20, 0.6);
+}
+
+.btn3d-red {
+  --face-light: #ff9b8f;
+  --face: #e8483b;
+  --edge: #9f251c;
+  --label: #ffffff;
+  --label-shadow: rgba(90, 15, 10, 0.6);
+}
+
+.btn3d-cream {
+  --face-light: #fffaf0;
+  --face: #f1ddb3;
+  --edge: #b98a3e;
+  --label: var(--color-ink);
+}
+
+.btn3d-navy {
+  --face-light: #4b78c4;
+  --face: #2b5aa6;
+  --edge: #102b5c;
+  --label: #ffffff;
+  --label-shadow: rgba(5, 15, 40, 0.6);
+}
+
+/* ------------------------------------------------------------------
+   Tarjeta crema con borde dorado
+   ------------------------------------------------------------------ */
+
+.cream-card {
+  position: relative;
+  border-radius: 1.75rem;
+  background:
+    radial-gradient(120% 70% at 50% 0%, #fffaf0 0%, var(--color-cream) 55%, var(--color-cream-200) 100%);
+  border: 4px solid var(--color-cream-border);
+  box-shadow:
+    0 8px 0 var(--color-cream-edge),
+    0 26px 40px -14px rgba(0, 0, 0, 0.65),
+    inset 0 0 0 3px rgba(255, 255, 255, 0.55);
+  color: var(--color-ink);
+}
+
+/* ------------------------------------------------------------------
+   Accesibilidad: menos movimiento
+   ------------------------------------------------------------------ */
+
+@media (prefers-reduced-motion: reduce) {
+  .btn3d {
+    transition: none;
+  }
+}
