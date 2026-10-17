@@ -40,7 +40,8 @@ export const sound = {
 
     let base = cache.get(name);
     if (!base) {
-      base = new Audio(src);
+      // En GitHub Pages el sitio vive bajo un subdirectorio (/malvinizados).
+      base = new Audio(`${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}${src}`);
       base.preload = "auto";
       cache.set(name, base);
     }

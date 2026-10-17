@@ -17,6 +17,8 @@ npm run dev
 
 Abrí http://localhost:3000.
 
+
+
 Otros comandos: `npm run build`, `npm run lint`, `npm run typecheck`.
 
 ## Estructura
