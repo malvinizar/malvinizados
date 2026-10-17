@@ -67,32 +67,29 @@ export function GameOver({ stats, segundos, onRestart }: GameOverProps) {
   ];
 
   return (
-    <motion.section className="flex w-full flex-col items-center gap-5 pt-4 lg:mx-auto lg:grid lg:h-full lg:max-w-[1600px] lg:grid-cols-[1fr_2.2fr] lg:items-center lg:gap-16 lg:pt-0" initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
-      {/* Columna izquierda (en 1920×1080): nivel alcanzado */}
-      <div className="flex flex-col items-center gap-5 lg:gap-8">
+    <motion.section className="flex w-full flex-col items-center gap-5 pt-4" initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
       {/* Nivel alcanzado */}
       <motion.div
-        className="relative grid size-40 place-items-center lg:size-80"
+        className="relative grid size-40 place-items-center"
         initial={{ scale: 0, rotate: -120 }}
         animate={{ scale: 1, rotate: 0 }}
         transition={{ type: "spring", stiffness: 170, damping: 12 }}
       >
         <SolDeMayo className="absolute inset-0 size-full drop-shadow-[0_0_30px_rgba(255,200,60,0.65)]" withFace={false} />
-        <div className="relative grid size-24 place-items-center rounded-full border-4 lg:size-44 lg:border-[6px] border-gold-dark bg-linear-to-b from-gold-light to-gold text-center shadow-[0_5px_0_var(--color-gold-dark)]">
-          <span className="text-[10px] font-extrabold uppercase leading-none text-gold-ink lg:text-base">Nivel</span>
-          <span className="font-display text-4xl leading-none text-gold-ink lg:text-8xl">{stats.nivelIndice + 1}</span>
+        <div className="relative grid size-24 place-items-center rounded-full border-4 border-gold-dark bg-linear-to-b from-gold-light to-gold text-center shadow-[0_5px_0_var(--color-gold-dark)]">
+          <span className="text-[10px] font-extrabold uppercase leading-none text-gold-ink">Nivel</span>
+          <span className="font-display text-4xl leading-none text-gold-ink">{stats.nivelIndice + 1}</span>
         </div>
       </motion.div>
 
       <motion.p
-        className="text-game -mt-2 text-center text-3xl leading-tight text-gold-light [--stroke-w:7px] [--drop:4px] lg:text-6xl lg:[--stroke-w:11px] lg:[--drop:6px]"
+        className="text-game -mt-2 text-center text-3xl leading-tight text-gold-light [--stroke-w:7px] [--drop:4px]"
         initial={{ scale: 0.5, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
         transition={{ type: "spring", stiffness: 300, damping: 14, delay: 0.3 }}
       >
         {stats.nivel.nombre}
       </motion.p>
-      </div>
 
       <motion.div
         className="w-full"
@@ -100,13 +97,11 @@ export function GameOver({ stats, segundos, onRestart }: GameOverProps) {
         animate={{ y: 0, opacity: 1, scale: 1 }}
         transition={{ type: "spring", stiffness: 240, damping: 18, delay: 0.4 }}
       >
-        <CreamCard title={buena ? "¡Gran partida!" : "¡Partida terminada!"} titleTone={buena ? "gold" : "celeste"} bodyClassName="lg:grid lg:grid-cols-2 lg:gap-x-10 lg:px-10 lg:pb-10 lg:pt-14">
-          {/* Columna A: resultados */}
-          <div>
+        <CreamCard title={buena ? "¡Gran partida!" : "¡Partida terminada!"} titleTone={buena ? "gold" : "celeste"}>
           {/* Puntaje */}
           <div className="mb-4 text-center">
             <p className="text-xs font-extrabold uppercase tracking-wide text-ink-soft">Puntaje</p>
-            <AnimatedNumber value={stats.puntaje} duration={1.6} className="font-display text-5xl text-navy-800 lg:text-7xl" />
+            <AnimatedNumber value={stats.puntaje} duration={1.6} className="font-display text-5xl text-navy-800" />
           </div>
 
           {/* Malvinómetro final (sobre fondo azul para que contraste) */}
@@ -114,7 +109,7 @@ export function GameOver({ stats, segundos, onRestart }: GameOverProps) {
             <Malvinometro valor={stats.malvinometro} nivelNombre={`${stats.malvinometro}%`} nivelIndice={stats.nivelIndice} />
           </div>
 
-          <dl className="mb-4 grid grid-cols-2 gap-3 text-center lg:grid-cols-4">
+          <dl className="mb-4 grid grid-cols-2 gap-3 text-center">
             {resumen.map((s, i) => (
               <motion.div
                 key={s.label}
@@ -129,14 +124,10 @@ export function GameOver({ stats, segundos, onRestart }: GameOverProps) {
             ))}
           </dl>
 
-          <div className="mb-6 grid grid-cols-2 gap-3 lg:mb-0">
+          <div className="mb-6 grid grid-cols-2 gap-3">
             <CategoriaCard titulo="Más fuerte" data={stats.fuerte} delay={1.05} />
             <CategoriaCard titulo="Para repasar" data={stats.debil} delay={1.15} />
           </div>
-          </div>
-
-          {/* Columna B: guardar en el ranking y botones */}
-          <div className="lg:flex lg:flex-col lg:justify-between">
 
           <div className="mb-6 rounded-2xl border-[3px] border-dashed border-cream-border p-3">
             <SaveScoreForm
@@ -158,7 +149,6 @@ export function GameOver({ stats, segundos, onRestart }: GameOverProps) {
             <Button3D variant="cream" href="/">
               Menú principal
             </Button3D>
-          </div>
           </div>
         </CreamCard>
       </motion.div>

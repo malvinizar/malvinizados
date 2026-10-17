@@ -6,6 +6,7 @@ import { CategoryBadge } from "@/components/ui/CategoryBadge";
 import { Confetti } from "@/components/ui/Confetti";
 import type { CategoryDef } from "@/config/categories";
 import { GAME_CONFIG } from "@/config/game";
+import { Portal } from "@/components/layout/Portal";
 import { sound } from "@/lib/sound";
 
 interface CategoryRevealProps {
@@ -25,6 +26,7 @@ export function CategoryReveal({ category, onDone }: CategoryRevealProps) {
   }, [onDone]);
 
   return (
+    <Portal>
     <motion.div
       className="fixed inset-0 z-50 flex flex-col items-center justify-center gap-6 px-6"
       style={{ background: `radial-gradient(circle at 50% 42%, ${category.color}ee 0%, ${category.colorDark}f2 55%, #0a1a3af5 100%)` }}
@@ -54,11 +56,11 @@ export function CategoryReveal({ category, onDone }: CategoryRevealProps) {
         animate={{ scale: 1, rotate: 0 }}
         transition={{ type: "spring", stiffness: 220, damping: 13 }}
       >
-        <CategoryBadge category={category} size="lg" className="scale-125 lg:scale-[2.2]" />
+        <CategoryBadge category={category} size="lg" className="scale-125" />
       </motion.div>
 
       <motion.p
-        className="text-game relative text-5xl uppercase text-white [--stroke-c:rgba(10,26,58,0.85)] [--stroke-w:8px] lg:mt-16 lg:text-9xl lg:[--stroke-w:14px]"
+        className="text-game relative text-5xl uppercase text-white [--stroke-c:rgba(10,26,58,0.85)] [--stroke-w:8px]"
         initial={{ y: 40, opacity: 0, scale: 0.6 }}
         animate={{ y: 0, opacity: 1, scale: 1 }}
         transition={{ type: "spring", stiffness: 300, damping: 14, delay: 0.25 }}
@@ -68,5 +70,6 @@ export function CategoryReveal({ category, onDone }: CategoryRevealProps) {
 
       <Confetti colors={[category.color, category.colorLight, "#ffffff", "#f5b921"]} burstKey={category.id} />
     </motion.div>
+    </Portal>
   );
 }

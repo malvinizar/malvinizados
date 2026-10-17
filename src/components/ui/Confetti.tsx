@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { useMemo } from "react";
+import { Portal } from "@/components/layout/Portal";
 
 interface ConfettiProps {
   colors?: string[];
@@ -33,6 +34,7 @@ export function Confetti({ colors = DEFAULT_COLORS, count = 42, burstKey = 0 }: 
   );
 
   return (
+    <Portal>
     <div className="pointer-events-none fixed inset-0 z-[60] overflow-hidden" aria-hidden>
       {pieces.map((p) => (
         <motion.span
@@ -51,5 +53,6 @@ export function Confetti({ colors = DEFAULT_COLORS, count = 42, burstKey = 0 }: 
         />
       ))}
     </div>
+    </Portal>
   );
 }

@@ -25,13 +25,13 @@ export function Malvinometro({ valor, nivelNombre, nivelIndice, size = "md", cla
   return (
     <div className={cn("w-full", className)} role="meter" aria-valuemin={0} aria-valuemax={100} aria-valuenow={pct} aria-label={`Malvinómetro: ${pct}%, nivel ${nivelNombre}`}>
       <div className="mb-1 flex items-end justify-between gap-2 px-1">
-        <span className={cn("font-display uppercase tracking-wide text-celeste-light drop-shadow-[0_2px_0_rgba(0,0,0,0.5)]", lg ? "text-base" : "text-xs lg:text-base")}>
+        <span className={cn("font-display uppercase tracking-wide text-celeste-light drop-shadow-[0_2px_0_rgba(0,0,0,0.5)]", lg ? "text-base" : "text-xs")}>
           Malvinómetro
         </span>
         <AnimatePresence mode="wait">
           <motion.span
             key={nivelNombre}
-            className={cn("text-game text-gold-light [--stroke-w:4px] [--drop:2px]", lg ? "text-xl" : "text-sm lg:text-2xl")}
+            className={cn("text-game text-gold-light [--stroke-w:4px] [--drop:2px]", lg ? "text-xl" : "text-sm")}
             initial={{ y: 12, opacity: 0, scale: 0.6 }}
             animate={{ y: 0, opacity: 1, scale: 1 }}
             exit={{ y: -10, opacity: 0 }}
@@ -45,7 +45,7 @@ export function Malvinometro({ valor, nivelNombre, nivelIndice, size = "md", cla
       <div
         className={cn(
           "relative rounded-full border-[3px] border-gold-dark bg-navy-950 shadow-[0_4px_0_var(--color-gold-dark),inset_0_3px_6px_rgba(0,0,0,0.6)]",
-          lg ? "h-8" : "h-6 lg:h-9",
+          lg ? "h-8" : "h-6",
         )}
       >
         {/* Relleno */}
@@ -74,7 +74,7 @@ export function Malvinometro({ valor, nivelNombre, nivelIndice, size = "md", cla
 
         {/* Sol en la punta */}
         <motion.div
-          className={cn("absolute top-1/2 -translate-x-1/2 -translate-y-1/2", lg ? "size-14" : "size-10 lg:size-16")}
+          className={cn("absolute top-1/2 -translate-x-1/2 -translate-y-1/2", lg ? "size-14" : "size-10")}
           initial={false}
           animate={{ left: `${Math.max(pct, 3)}%`, rotate: pct * 3.6 }}
           transition={{ type: "spring", stiffness: 90, damping: 16 }}

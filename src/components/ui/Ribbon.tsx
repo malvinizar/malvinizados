@@ -7,8 +7,6 @@ interface RibbonProps {
   /** "celeste" (celeste y blanco) o "gold" (para logros y victorias). */
   tone?: "celeste" | "gold";
   as?: "h1" | "h2" | "h3" | "p" | "span";
-  /** Clases extra para el texto (por ejemplo, tamaños para pantallas grandes). */
-  textClassName?: string;
 }
 
 const tones = {
@@ -32,7 +30,7 @@ const tones = {
  * Cinta de título con puntas plegadas (como "MENÚ PRINCIPAL" en la referencia).
  * La forma es un SVG que se estira; el texto va por encima en HTML.
  */
-export function Ribbon({ children, className, tone = "celeste", as: Tag = "span", textClassName }: RibbonProps) {
+export function Ribbon({ children, className, tone = "celeste", as: Tag = "span" }: RibbonProps) {
   const c = tones[tone];
   return (
     <div className={cn("relative mx-auto h-12 w-64 drop-shadow-[0_4px_0_rgba(0,0,0,0.25)]", className)}>
@@ -57,7 +55,6 @@ export function Ribbon({ children, className, tone = "celeste", as: Tag = "span"
           "absolute inset-0 flex items-center justify-center px-10 pb-1 text-center font-display uppercase leading-none tracking-wide",
           "text-[clamp(0.85rem,3.6vw,1.1rem)]",
           c.text,
-          textClassName,
         )}
       >
         {children}

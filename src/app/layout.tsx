@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Lilita_One, Nunito } from "next/font/google";
 import { Background } from "@/components/layout/Background";
+import { FitToScreen } from "@/components/layout/FitToScreen";
 import { Providers } from "@/components/layout/Providers";
 import "./globals.css";
 
@@ -34,7 +35,9 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
     <html lang="es" className={`${lilita.variable} ${nunito.variable}`}>
       <body className="min-h-dvh font-sans antialiased">
         <Background />
-        <Providers>{children}</Providers>
+        <Providers>
+          <FitToScreen>{children}</FitToScreen>
+        </Providers>
       </body>
     </html>
   );

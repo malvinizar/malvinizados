@@ -7,6 +7,7 @@ import { Confetti } from "@/components/ui/Confetti";
 import { CreamCard } from "@/components/ui/CreamCard";
 import { SolDeMayo } from "@/components/ui/SolDeMayo";
 import { CATEGORIES, type CategoriaId } from "@/config/categories";
+import { Portal } from "@/components/layout/Portal";
 import { sound } from "@/lib/sound";
 
 interface ComodinPickerProps {
@@ -22,6 +23,7 @@ export function ComodinPicker({ available, onPick }: ComodinPickerProps) {
   }, []);
 
   return (
+    <Portal>
     <motion.div
       className="fixed inset-0 z-50 flex flex-col items-center justify-center gap-4 bg-navy-950/85 px-4 backdrop-blur-sm"
       initial={{ opacity: 0 }}
@@ -29,7 +31,7 @@ export function ComodinPicker({ available, onPick }: ComodinPickerProps) {
       exit={{ opacity: 0 }}
     >
       <motion.div
-        className="size-36 lg:size-56"
+        className="size-36"
         initial={{ scale: 0, rotate: -180 }}
         animate={{ scale: 1, rotate: 0 }}
         transition={{ type: "spring", stiffness: 200, damping: 12 }}
@@ -38,14 +40,14 @@ export function ComodinPicker({ available, onPick }: ComodinPickerProps) {
       </motion.div>
 
       <motion.div
-        className="w-full max-w-sm lg:max-w-2xl"
+        className="w-full max-w-sm"
         initial={{ y: 60, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ type: "spring", stiffness: 260, damping: 20, delay: 0.2 }}
       >
         <CreamCard title="¡Comodín!" titleTone="gold">
           <p className="mb-4 text-center font-bold text-ink-soft">Cayó el Sol de Mayo: elegí la categoría.</p>
-          <div className="grid grid-cols-2 gap-4 lg:grid-cols-4">
+          <div className="grid grid-cols-2 gap-4">
             {CATEGORIES.map((c, i) => {
               const enabled = available.includes(c.id);
               return (
@@ -76,5 +78,6 @@ export function ComodinPicker({ available, onPick }: ComodinPickerProps) {
 
       <Confetti burstKey="comodin" />
     </motion.div>
+    </Portal>
   );
 }

@@ -4,6 +4,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { useEffect } from "react";
 import { Button3D } from "@/components/ui/Button3D";
 import { CreamCard } from "@/components/ui/CreamCard";
+import { Portal } from "@/components/layout/Portal";
 
 interface HowToPlayModalProps {
   open: boolean;
@@ -28,6 +29,7 @@ export function HowToPlayModal({ open, onClose }: HowToPlayModalProps) {
   }, [open, onClose]);
 
   return (
+    <Portal>
     <AnimatePresence>
       {open ? (
         <motion.div
@@ -41,7 +43,7 @@ export function HowToPlayModal({ open, onClose }: HowToPlayModalProps) {
             role="dialog"
             aria-modal="true"
             aria-labelledby="how-to-title"
-            className="w-full max-w-sm lg:max-w-xl"
+            className="w-full max-w-sm"
             initial={{ scale: 0.6, y: 40, opacity: 0 }}
             animate={{ scale: 1, y: 0, opacity: 1 }}
             exit={{ scale: 0.8, y: 20, opacity: 0 }}
@@ -79,5 +81,6 @@ export function HowToPlayModal({ open, onClose }: HowToPlayModalProps) {
         </motion.div>
       ) : null}
     </AnimatePresence>
+    </Portal>
   );
 }

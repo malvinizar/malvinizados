@@ -44,14 +44,14 @@ export function AnswerButton({ label, letter, state, disabled, onClick, index }:
         onClick={onClick}
         disabled={disabled}
         className={cn(
-          "btn3d min-h-14 justify-start px-3 py-2 text-left normal-case tracking-normal disabled:cursor-default lg:min-h-20 lg:gap-4 lg:px-5",
+          "btn3d min-h-14 justify-start px-3 py-2 text-left normal-case tracking-normal disabled:cursor-default",
           stateClass[state],
         )}
         style={{ fontFamily: "var(--font-sans)", textShadow: "none" }}
       >
         <span
           className={cn(
-            "relative grid size-9 shrink-0 place-items-center rounded-full border-[3px] font-display text-lg uppercase lg:size-12 lg:text-2xl",
+            "relative grid size-9 shrink-0 place-items-center rounded-full border-[3px] font-display text-lg uppercase",
             state === "correct" || state === "wrong"
               ? "border-white/70 bg-white/25 text-white"
               : "border-cream-border bg-white text-navy-800",
@@ -59,7 +59,7 @@ export function AnswerButton({ label, letter, state, disabled, onClick, index }:
         >
           {state === "correct" ? "✓" : state === "wrong" ? "✕" : letter}
         </span>
-        <span className="relative text-base font-extrabold leading-snug sm:text-lg lg:text-2xl">{label}</span>
+        <span className="relative text-base font-extrabold leading-snug sm:text-lg">{label}</span>
       </button>
     </motion.div>
   );

@@ -24,7 +24,7 @@ function Medalla({ puesto }: { puesto: number }) {
   const m = MEDALLAS[puesto - 1];
   if (!m) {
     return (
-      <span className="grid size-10 shrink-0 place-items-center rounded-full bg-cream-200 font-display text-lg text-ink-soft lg:size-12 lg:text-xl">
+      <span className="grid size-10 shrink-0 place-items-center rounded-full bg-cream-200 font-display text-lg text-ink-soft">
         {puesto}
       </span>
     );
@@ -32,7 +32,7 @@ function Medalla({ puesto }: { puesto: number }) {
   return (
     <span
       className={cn(
-        "grid size-10 shrink-0 place-items-center rounded-full border-[3px] bg-linear-to-b font-display text-lg shadow-[0_3px_0_rgba(0,0,0,0.25)] lg:size-12 lg:text-xl",
+        "grid size-10 shrink-0 place-items-center rounded-full border-[3px] bg-linear-to-b font-display text-lg shadow-[0_3px_0_rgba(0,0,0,0.25)]",
         m.bg,
         m.border,
         m.text,
@@ -84,8 +84,8 @@ export function RankingScreen() {
   }, [filas, cantidad]);
 
   return (
-    <main className="mx-auto flex min-h-dvh w-full max-w-md flex-col items-center gap-8 px-4 pb-10 pt-14 lg:h-dvh lg:max-w-3xl lg:justify-center lg:gap-10 lg:py-10">
-      <Logo compact className="lg:scale-125" />
+    <main className="mx-auto flex min-h-dvh w-full max-w-md flex-col items-center gap-8 px-4 pb-10 pt-14">
+      <Logo compact />
 
       <motion.div
         className="w-full"
@@ -93,7 +93,7 @@ export function RankingScreen() {
         animate={{ y: 0, opacity: 1 }}
         transition={{ type: "spring", stiffness: 240, damping: 20, delay: 0.2 }}
       >
-        <CreamCard title="Ranking general" titleTone="gold" bodyClassName="lg:px-10 lg:pb-8">
+        <CreamCard title="Ranking general" titleTone="gold">
           {!firebaseConfigured() ? (
             <p className="mb-6 text-center font-bold text-ink-soft">El ranking todavía no está conectado.</p>
           ) : error ? (
@@ -110,12 +110,12 @@ export function RankingScreen() {
             <p className="mb-6 py-6 text-center font-bold text-ink-soft">Todavía no hay puntajes. ¡Sé la primera persona!</p>
           ) : (
             <>
-              <ol ref={listaRef} className="mb-4 flex flex-col gap-2 lg:max-h-[50vh] lg:overflow-y-auto lg:pr-2">
+              <ol ref={listaRef} className="mb-4 flex flex-col gap-2">
                 {filas.map((f, i) => (
                   <motion.li
                     key={f.id}
                     className={cn(
-                      "flex items-center gap-3 rounded-2xl border-[3px] px-3 py-2 lg:gap-4 lg:px-4 lg:py-3",
+                      "flex items-center gap-3 rounded-2xl border-[3px] px-3 py-2",
                       i < 3 ? "border-gold bg-white" : "border-cream-border bg-white/60",
                     )}
                     initial={{ x: -30, opacity: 0 }}
@@ -124,14 +124,14 @@ export function RankingScreen() {
                   >
                     <Medalla puesto={i + 1} />
                     <div className="min-w-0 flex-1">
-                      <p className="truncate font-display text-lg leading-tight text-navy-900 lg:text-2xl">{f.nombre}</p>
-                      <p className="truncate text-xs font-bold text-ink-soft lg:text-sm">
+                      <p className="truncate font-display text-lg leading-tight text-navy-900">{f.nombre}</p>
+                      <p className="truncate text-xs font-bold text-ink-soft">
                         {f.curso} · {f.escuela}
                       </p>
                     </div>
                     <div className="text-right">
-                      <p className="font-display text-lg leading-tight text-navy-800 lg:text-2xl">{f.puntaje.toLocaleString("es-AR")}</p>
-                      <p className="text-[11px] font-extrabold uppercase text-ink-soft lg:text-xs">
+                      <p className="font-display text-lg leading-tight text-navy-800">{f.puntaje.toLocaleString("es-AR")}</p>
+                      <p className="text-[11px] font-extrabold uppercase text-ink-soft">
                         {f.malvinometro}% · {f.nivel}
                       </p>
                     </div>
@@ -156,7 +156,7 @@ export function RankingScreen() {
             </>
           )}
 
-          <div className="flex flex-col gap-4 lg:flex-row">
+          <div className="flex flex-col gap-4">
             <Button3D href="/jugar" size="lg" pulse>
               ¡Jugar!
             </Button3D>

@@ -47,12 +47,12 @@ function Pill({ icon, children, label, highlight }: { icon: React.ReactNode; chi
   return (
     <div
       className={cn(
-        "flex h-10 min-w-0 flex-1 items-center gap-1.5 rounded-full border-[3px] border-cream-border bg-cream px-2 font-display text-lg text-ink shadow-[0_3px_0_var(--color-cream-edge)] transition-colors lg:h-16 lg:flex-none lg:gap-3 lg:px-3 lg:text-3xl",
+        "flex h-10 min-w-0 flex-1 items-center gap-1.5 rounded-full border-[3px] border-cream-border bg-cream px-2 font-display text-lg text-ink shadow-[0_3px_0_var(--color-cream-edge)] transition-colors",
         highlight && "border-gold-dark bg-gold-light",
       )}
       aria-label={label}
     >
-      <span className="grid size-7 shrink-0 place-items-center rounded-full bg-white/80 lg:size-10 lg:[&>svg]:size-7">{icon}</span>
+      <span className="grid size-7 shrink-0 place-items-center rounded-full bg-white/80">{icon}</span>
       <span className="truncate">{children}</span>
     </div>
   );
@@ -85,7 +85,7 @@ export function GameHud({ historial, total, stats }: GameHudProps) {
   }, [stats.racha]);
 
   return (
-    <header className="relative flex w-full flex-col gap-3 lg:h-full lg:justify-center lg:gap-8 lg:rounded-[2rem] lg:border-4 lg:border-white/10 lg:bg-navy-950/40 lg:p-7">
+    <header className="relative flex w-full flex-col gap-3">
       <div className="flex items-center gap-2">
         <Link
           href="/"
@@ -108,7 +108,7 @@ export function GameHud({ historial, total, stats }: GameHudProps) {
             return (
               <motion.li
                 key={i}
-                className="size-3 rounded-full border-2 border-white/60 lg:size-4"
+                className="size-3 rounded-full border-2 border-white/60"
                 style={{ background: h ? (h.correcta ? cat?.color : "#6b7a99") : "rgba(255,255,255,0.12)" }}
                 initial={false}
                 animate={h ? { scale: [1.6, 1] } : { scale: 1 }}
@@ -123,13 +123,13 @@ export function GameHud({ historial, total, stats }: GameHudProps) {
 
       <Malvinometro valor={stats.malvinometro} nivelNombre={stats.nivel.nombre} nivelIndice={stats.nivelIndice} />
 
-      <div className="flex gap-2 lg:flex-col lg:gap-4">
+      <div className="flex gap-2">
         <Pill icon={<CoinIcon />} label={`Puntaje: ${stats.puntaje}`}>
           <AnimatedNumber value={stats.puntaje} />
         </Pill>
         <Pill icon={<FlameIcon />} label={`Racha: ${stats.racha}`} highlight={mult > 1}>
           {stats.racha}
-          {mult > 1 ? <span className="ml-1 text-sm text-cine-dark lg:text-xl">×{mult}</span> : null}
+          {mult > 1 ? <span className="ml-1 text-sm text-cine-dark">×{mult}</span> : null}
         </Pill>
         <Pill icon={<CheckIcon />} label={`Aciertos: ${stats.aciertos}`}>
           {stats.aciertos}
@@ -141,7 +141,7 @@ export function GameHud({ historial, total, stats }: GameHudProps) {
         {nivelUp ? (
           <motion.div
             key={nivelUp}
-            className="pointer-events-none absolute inset-x-0 top-full z-40 mt-2 flex justify-center lg:inset-x-6 lg:bottom-8 lg:top-auto lg:mt-0"
+            className="pointer-events-none absolute inset-x-0 top-full z-40 mt-2 flex justify-center"
             initial={{ y: -20, opacity: 0, scale: 0.6 }}
             animate={{ y: 0, opacity: 1, scale: 1 }}
             exit={{ y: -10, opacity: 0 }}
