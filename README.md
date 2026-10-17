@@ -70,8 +70,8 @@ El sistema de sonido ya está conectado, pero no reproduce nada hasta que se le 
 
 1. ✅ Base del proyecto, sistema visual y pantalla de inicio
 2. ✅ Banco de preguntas (borrador de 48, en revisión) con esquema y validación
-3. ⬜ Ruleta
-4. ⬜ Pantalla de pregunta, multimedia y explicación
-5. ⬜ Malvinómetro, puntaje, rachas y resultado
+3. ✅ Ruleta
+4. ✅ Pantalla de pregunta, multimedia y explicación
+5. ✅ Malvinómetro, puntaje, rachas y resultado
 6. ⬜ Ranking en Firestore (auth anónima)
 7. ⬜ Pulido de animaciones, sonidos y accesibilidad

@@ -7,7 +7,7 @@ import { CategoryBadge } from "@/components/ui/CategoryBadge";
 import { Confetti } from "@/components/ui/Confetti";
 import { Ribbon } from "@/components/ui/Ribbon";
 import { CATEGORY_BY_ID } from "@/config/categories";
-import { correctDisplayIndex, type CurrentQuestion } from "@/features/game/gameMachine";
+import { correctDisplayIndex, type AnswerRecord, type CurrentQuestion } from "@/features/game/gameMachine";
 import { sound } from "@/lib/sound";
 import { AnswerButton, type AnswerState } from "./AnswerButton";
 import { MediaRenderer } from "./MediaRenderer";
@@ -22,11 +22,13 @@ interface QuestionScreenProps {
   onAnswer: (index: number) => void;
   onContinue: () => void;
   esUltima: boolean;
+  /** Resultado registrado de esta pregunta (puntos, racha), una vez respondida. */
+  resultado: AnswerRecord | null;
 }
 
 const LETTERS = ["a", "b", "c", "d"];
 
-export function QuestionScreen({ current, elegida, numero, total, onAnswer, onContinue, esUltima }: QuestionScreenProps) {
+export function QuestionScreen({ current, elegida, numero, total, onAnswer, onContinue, esUltima, resultado }: QuestionScreenProps) {
   const { pregunta, orden } = current;
   const category = CATEGORY_BY_ID[pregunta.categoria];
   const correcta = correctDisplayIndex(current);
@@ -122,6 +124,23 @@ export function QuestionScreen({ current, elegida, numero, total, onAnswer, onCo
               </Ribbon>
             </div>
             <div className="cream-card flex flex-col gap-3 px-5 pb-5 pt-9">
+              {acerto && resultado ? (
+                <motion.div
+                  className="flex flex-wrap items-center justify-center gap-2"
+                  initial={{ scale: 0.3, opacity: 0 }}
+                  animate={{ scale: 1, opacity: 1 }}
+                  transition={{ type: "spring", stiffness: 420, damping: 12, delay: 0.55 }}
+                >
+                  <span className="text-game text-3xl text-gold-light [--stroke-w:6px] [--drop:3px]">
+                    +{resultado.puntos}
+                  </span>
+                  {resultado.multiplicador > 1 ? (
+                    <span className="rounded-full border-[3px] border-cine-dark bg-cine px-3 py-0.5 font-display text-sm uppercase text-white">
+                      ¡Racha de {resultado.racha}! ×{resultado.multiplicador}
+                    </span>
+                  ) : null}
+                </motion.div>
+              ) : null}
               {!acerto ? (
                 <p className="text-sm font-bold text-ink">
                   La respuesta correcta era: <span className="text-futbol-dark">{pregunta.opciones[pregunta.correcta]}</span>

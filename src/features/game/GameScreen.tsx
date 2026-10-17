@@ -1,7 +1,7 @@
 "use client";
 
 import { AnimatePresence, motion } from "framer-motion";
-import { useCallback, useReducer, useState } from "react";
+import { useCallback, useMemo, useReducer, useState } from "react";
 import { Button3D } from "@/components/ui/Button3D";
 import { CATEGORY_BY_ID, type CategoriaId } from "@/config/categories";
 import { GAME_CONFIG } from "@/config/game";
@@ -16,6 +16,7 @@ import { GameHud } from "./GameHud";
 import { GameOver } from "./GameOver";
 import { gameReducer, initialGameState } from "./gameMachine";
 import { availableCategories, pickQuestion, pickSector } from "./questionPicker";
+import { calcularStats } from "./stats";
 
 const TOTAL = Math.min(GAME_CONFIG.preguntasPorPartida, PREGUNTAS.length);
 
@@ -24,6 +25,7 @@ export function GameScreen() {
   const [state, dispatch] = useReducer(gameReducer, undefined, () => initialGameState(TOTAL, Date.now()));
   const { rotation, pointer, spinning, spin } = useWheelSpin();
   const [highlight, setHighlight] = useState<number | null>(null);
+  const stats = useMemo(() => calcularStats(state.historial, state.total), [state.historial, state.total]);
 
   const handleSpin = useCallback(async () => {
     if (state.phase !== "idle") return;
@@ -63,7 +65,7 @@ export function GameScreen() {
 
   return (
     <main className="mx-auto flex min-h-dvh w-full max-w-md flex-col items-center gap-5 px-4 pb-[max(1.5rem,env(safe-area-inset-bottom))] pt-[max(1rem,env(safe-area-inset-top))]">
-      {state.phase !== "finished" ? <GameHud historial={state.historial} total={state.total} /> : null}
+      {state.phase !== "finished" ? <GameHud historial={state.historial} total={state.total} stats={stats} /> : null}
 
       <AnimatePresence mode="wait">
         {showWheel ? (
@@ -109,13 +111,14 @@ export function GameScreen() {
             onAnswer={(index) => dispatch({ type: "ANSWER", index })}
             onContinue={() => dispatch({ type: "NEXT" })}
             esUltima={state.historial.length >= state.total}
+            resultado={state.phase === "answered" ? (state.historial[state.historial.length - 1] ?? null) : null}
           />
         ) : null}
 
         {state.phase === "finished" ? (
           <GameOver
             key="fin"
-            historial={state.historial}
+            stats={stats}
             segundos={Math.round(((state.fin ?? Date.now()) - state.inicio) / 1000)}
             onRestart={restart}
           />

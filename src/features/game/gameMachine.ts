@@ -1,4 +1,5 @@
 import type { CategoriaId } from "@/config/categories";
+import { multiplicadorRacha, PUNTOS } from "@/config/scoring";
 import type { Pregunta } from "@/features/questions/types";
 
 /**
@@ -12,6 +13,11 @@ export interface AnswerRecord {
   categoria: CategoriaId;
   dificultad: Pregunta["dificultad"];
   correcta: boolean;
+  /** Puntos ganados (0 si fue incorrecta). */
+  puntos: number;
+  /** Correctas seguidas contando esta (0 si fue incorrecta). */
+  racha: number;
+  multiplicador: number;
 }
 
 export interface CurrentQuestion {
@@ -95,11 +101,18 @@ export function gameReducer(state: GameState, action: GameAction): GameState {
       if (state.phase !== "question" || !state.current) return state;
       const ok = action.index === correctDisplayIndex(state.current);
       const p = state.current.pregunta;
+      const previa = state.historial.length ? state.historial[state.historial.length - 1].racha : 0;
+      const racha = ok ? previa + 1 : 0;
+      const multiplicador = ok ? multiplicadorRacha(racha) : 1;
+      const puntos = ok ? Math.round(PUNTOS[p.dificultad] * multiplicador) : 0;
       return {
         ...state,
         phase: "answered",
         elegida: action.index,
-        historial: [...state.historial, { id: p.id, categoria: p.categoria, dificultad: p.dificultad, correcta: ok }],
+        historial: [
+          ...state.historial,
+          { id: p.id, categoria: p.categoria, dificultad: p.dificultad, correcta: ok, puntos, racha, multiplicador },
+        ],
       };
     }
 
