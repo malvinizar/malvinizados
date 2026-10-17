@@ -31,8 +31,8 @@ export function GameOver({ historial, segundos, onRestart }: GameOverProps) {
   const buena = aciertos >= Math.ceil(historial.length * 0.6);
 
   useEffect(() => {
-    sound.play("gameOver");
-  }, []);
+    sound.play(buena ? "victory" : "gameOver");
+  }, [buena]);
 
   return (
     <motion.section
