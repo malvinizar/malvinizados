@@ -71,19 +71,15 @@ export function CineIcon(props: IconProps) {
   );
 }
 
-/** Pelota de fútbol. Fútbol. */
+/** Camiseta con el número 10. Fútbol. */
 export function FutbolIcon(props: IconProps) {
   return (
-    <svg viewBox="0 0 64 64" aria-hidden {...props}>
-      <circle cx="32" cy="32" r="26" fill="none" stroke="currentColor" strokeWidth="5" />
-      <path d="M32 21 L42 28.5 L38.5 40 H25.5 L22 28.5 Z" fill="currentColor" />
-      <g stroke="currentColor" strokeWidth="4" strokeLinecap="round">
-        <path d="M32 21 V9" />
-        <path d="M42 28.5 L54 24" />
-        <path d="M38.5 40 L46 51" />
-        <path d="M25.5 40 L18 51" />
-        <path d="M22 28.5 L10 24" />
-      </g>
+    <svg viewBox="0 0 64 64" fill="currentColor" aria-hidden {...props}>
+      {/* Camiseta con el "10" calado */}
+      <path
+        fillRule="evenodd"
+        d="M22 6 Q32 14 42 6 L55 10.5 L63 24 L52.5 30 L50 26.5 V56 Q50 58 48 58 H16 Q14 58 14 56 V26.5 L11.5 30 L1 24 L9 10.5 Z M20.5 28 H27 V50 H21.5 V34 L17.5 36 V31 Z M38.5 28 a7.5 7.5 0 0 1 7.5 7.5 v7 a7.5 7.5 0 0 1 -15 0 v-7 a7.5 7.5 0 0 1 7.5 -7.5 Z M38.5 33 a2.5 2.5 0 0 1 2.5 2.5 v7 a2.5 2.5 0 0 1 -5 0 v-7 a2.5 2.5 0 0 1 2.5 -2.5 Z"
+      />
     </svg>
   );
 }
