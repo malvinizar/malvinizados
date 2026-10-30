@@ -1,0 +1,27 @@
+name: Revisar cambios
+
+# Compila y revisa tipos en cada pull request, sin publicar nada.
+on:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Instalar dependencias
+        run: npm install --no-audit --no-fund
+
+      - name: Revisar tipos
+        run: npm run typecheck
+
+      - name: Validar preguntas y compilar
+        run: npm run build

@@ -262,3 +262,16 @@ body {
     animation: none;
   }
 }
+
+/* Barra de desplazamiento de la lista del ranking, a tono con la tarjeta crema. */
+.ranking-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-cream-border) transparent;
+}
+.ranking-scroll::-webkit-scrollbar {
+  width: 8px;
+}
+.ranking-scroll::-webkit-scrollbar-thumb {
+  background: var(--color-cream-border);
+  border-radius: 999px;
+}

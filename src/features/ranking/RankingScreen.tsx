@@ -1,17 +1,20 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useEffect, useRef, useState } from "react";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { Logo } from "@/components/brand/Logo";
 import { Button3D } from "@/components/ui/Button3D";
 import { CreamCard } from "@/components/ui/CreamCard";
 import { SolDeMayo } from "@/components/ui/SolDeMayo";
-import { firebaseConfigured } from "@/lib/firebase";
+import { firebaseConfigured, uidActual } from "@/lib/firebase";
 import { cn } from "@/lib/cn";
-import { obtenerRanking, type FilaRanking } from "./rankingService";
+import { agruparInstituciones, leerPerfil, normalizar, obtenerRankingCompleto, type FilaRanking } from "./rankingService";
 
-/** Cuántos se ven al entrar y cuántos se suman con cada "Ver más". */
-const INICIALES = 5;
+/** Puestos que quedan fijos arriba, siempre visibles. */
+const PODIO = 3;
+/** Filas que se ven debajo del podio al entrar y cuántas se suman con cada "Ver más". */
+const INICIALES = 7;
 const POR_PAGINA = 10;
 
 const MEDALLAS = [
@@ -43,57 +46,167 @@ function Medalla({ puesto }: { puesto: number }) {
   );
 }
 
-/** Ranking general: muestra los 5 mejores y permite ver más. */
+interface FilaProps {
+  fila: FilaRanking;
+  puesto: number;
+  /** Es un puntaje de quien está mirando. */
+  propia?: boolean;
+  delay?: number;
+  className?: string;
+}
+
+function Fila({ fila, puesto, propia, delay = 0, className }: FilaProps) {
+  const subtitulo = [fila.curso, fila.escuela].filter(Boolean).join(" · ");
+  return (
+    <motion.li
+      className={cn(
+        "flex items-center gap-3 rounded-2xl border-[3px] px-3 py-2",
+        propia
+          ? "border-celeste-dark bg-celeste-light"
+          : puesto <= PODIO
+            ? "border-gold bg-white"
+            : "border-cream-border bg-white/60",
+        className,
+      )}
+      initial={{ x: -30, opacity: 0 }}
+      animate={{ x: 0, opacity: 1 }}
+      transition={{ delay }}
+    >
+      <Medalla puesto={puesto} />
+      <div className="min-w-0 flex-1">
+        <p className="truncate font-display text-lg leading-tight text-navy-900">{fila.nombre}</p>
+        <p className="truncate text-xs font-bold text-ink-soft" title={subtitulo}>
+          {subtitulo}
+        </p>
+      </div>
+      <div className="text-right">
+        <p className="font-display text-lg leading-tight text-navy-800">{fila.puntaje.toLocaleString("es-AR")}</p>
+        <p className="text-[11px] font-extrabold uppercase text-ink-soft">
+          {fila.malvinometro}% · {fila.nivel}
+        </p>
+      </div>
+    </motion.li>
+  );
+}
+
+/**
+ * Ranking general.
+ * - El podio (1° a 3°) queda fijo arriba.
+ * - El resto se desplaza dentro de la tarjeta y se carga de a bloques con "Ver más",
+ *   así la tarjeta no crece ni se achica al sumar personas.
+ * - La mejor posición de quien mira queda anclada abajo.
+ * - Se puede filtrar por institución (también con el link ?escuela=...).
+ */
 export function RankingScreen() {
-  const [cantidad, setCantidad] = useState(INICIALES);
-  const [filas, setFilas] = useState<FilaRanking[] | null>(null);
-  const [hayMas, setHayMas] = useState(false);
-  const [cargando, setCargando] = useState(false);
+  const router = useRouter();
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
+  const escuela = searchParams.get("escuela") ?? "";
+
+  const [todas, setTodas] = useState<FilaRanking[] | null>(null);
   const [error, setError] = useState(false);
+  const [uid, setUid] = useState<string | null>(null);
+  const [visibles, setVisibles] = useState(INICIALES);
   const listaRef = useRef<HTMLOListElement>(null);
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const primeraNueva = useRef<number | null>(null);
 
   useEffect(() => {
     if (!firebaseConfigured()) return;
     let cancelado = false;
-    setCargando(true);
-    setError(false);
-    obtenerRanking(cantidad)
+    obtenerRankingCompleto()
       .then((r) => {
-        if (cancelado) return;
-        setFilas(r.filas);
-        setHayMas(r.hayMas);
+        if (!cancelado) setTodas(r);
       })
       .catch((e) => {
         console.error(e);
         if (!cancelado) setError(true);
+      });
+    uidActual()
+      .then((u) => {
+        if (!cancelado) setUid(u);
       })
-      .finally(() => {
-        if (!cancelado) setCargando(false);
+      .catch(() => {
+        /* sin sesión: se usa el perfil guardado */
       });
     return () => {
       cancelado = true;
     };
-  }, [cantidad]);
+  }, []);
 
-  // Al cargar más, llevar la vista a los nuevos participantes.
+  const instituciones = useMemo(() => (todas ? agruparInstituciones(todas) : []), [todas]);
+
+  const filas = useMemo(() => {
+    if (!todas) return null;
+    if (!escuela) return todas;
+    return todas.filter((f) => normalizar(f.escuela) === escuela);
+  }, [todas, escuela]);
+
+  /** Reconoce los puntajes propios por la sesión del dispositivo o, si no hay, por el perfil guardado. */
+  const esPropia = useMemo(() => {
+    const perfil = typeof window !== "undefined" ? leerPerfil() : null;
+    const nombre = perfil ? normalizar(perfil.nombre) : "";
+    const esc = perfil ? normalizar(perfil.escuela) : "";
+    return (f: FilaRanking) =>
+      (uid !== null && f.uid === uid) || (!!nombre && normalizar(f.nombre) === nombre && normalizar(f.escuela) === esc);
+  }, [uid]);
+
+  const miIndice = filas ? filas.findIndex(esPropia) : -1;
+  const tengoPuntajes = !!todas && todas.some(esPropia);
+
+  // Al cambiar de institución, volver al principio.
   useEffect(() => {
-    if (cantidad > INICIALES && filas && listaRef.current) {
-      const item = listaRef.current.children[cantidad - POR_PAGINA] as HTMLElement | undefined;
-      item?.scrollIntoView({ behavior: "smooth", block: "nearest" });
-    }
-  }, [filas, cantidad]);
+    setVisibles(INICIALES);
+    scrollRef.current?.scrollTo({ top: 0 });
+  }, [escuela]);
 
+  // Al tocar "Ver más", llevar la vista a los nuevos participantes (solo dentro de la lista).
+  useEffect(() => {
+    const i = primeraNueva.current;
+    const cont = scrollRef.current;
+    const item = i !== null ? (listaRef.current?.children[i] as HTMLElement | undefined) : undefined;
+    if (cont && item) cont.scrollTo({ top: item.offsetTop - cont.offsetTop - 4, behavior: "smooth" });
+    primeraNueva.current = null;
+  }, [visibles]);
+
+  function cambiarEscuela(clave: string) {
+    const params = new URLSearchParams(searchParams.toString());
+    if (clave) params.set("escuela", clave);
+    else params.delete("escuela");
+    const qs = params.toString();
+    router.replace(qs ? `${pathname}?${qs}` : pathname, { scroll: false });
+  }
+
+  function verMas() {
+    primeraNueva.current = visibles;
+    setVisibles((v) => v + POR_PAGINA);
+  }
+
+  const podio = filas?.slice(0, PODIO) ?? [];
+  const resto = filas?.slice(PODIO) ?? [];
+  const restoVisible = resto.slice(0, visibles);
+  const hayMas = resto.length > visibles;
+  const institucionActual = instituciones.find((i) => i.clave === escuela);
+
+  // En computadora (desde 1024 px, donde FitToScreen achica la página) la pantalla ocupa
+  // exactamente el alto de la ventana y solo la lista se desplaza: así el tamaño no depende
+  // de cuántas personas haya. En celular la página scrollea normal y la lista tiene un tope.
   return (
-    <main className="mx-auto flex min-h-dvh w-full max-w-md flex-col items-center gap-8 px-4 pb-10 pt-14">
+    <main className="mx-auto flex min-h-dvh w-full lg:h-dvh lg:min-h-[55rem] max-w-md flex-col items-center gap-5 px-4 pb-6 pt-8">
       <Logo compact />
 
       <motion.div
-        className="w-full"
+        className="flex min-h-0 w-full flex-1 flex-col"
         initial={{ y: 40, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ type: "spring", stiffness: 240, damping: 20, delay: 0.2 }}
       >
-        <CreamCard title="Ranking general" titleTone="gold">
+        <CreamCard
+          title="Ranking general"
+          titleTone="gold"
+          className="flex min-h-0 flex-1 flex-col"
+          bodyClassName="flex min-h-0 flex-1 flex-col"
+        >
           {!firebaseConfigured() ? (
             <p className="mb-6 text-center font-bold text-ink-soft">El ranking todavía no está conectado.</p>
           ) : error ? (
@@ -101,62 +214,99 @@ export function RankingScreen() {
               No se pudo cargar el ranking. Probá de nuevo en un rato.
             </p>
           ) : filas === null ? (
-            <div className="mb-6 flex justify-center py-8" aria-label="Cargando">
+            <div className="mb-6 flex flex-1 items-center justify-center py-8" aria-label="Cargando">
               <motion.div className="size-16" animate={{ rotate: 360 }} transition={{ duration: 2, repeat: Infinity, ease: "linear" }}>
                 <SolDeMayo className="size-full" withFace={false} />
               </motion.div>
             </div>
-          ) : filas.length === 0 ? (
+          ) : todas && todas.length === 0 ? (
             <p className="mb-6 py-6 text-center font-bold text-ink-soft">Todavía no hay puntajes. ¡Sé la primera persona!</p>
           ) : (
-            <>
-              <ol ref={listaRef} className="mb-4 flex flex-col gap-2">
-                {filas.map((f, i) => (
-                  <motion.li
-                    key={f.id}
-                    className={cn(
-                      "flex items-center gap-3 rounded-2xl border-[3px] px-3 py-2",
-                      i < 3 ? "border-gold bg-white" : "border-cream-border bg-white/60",
-                    )}
-                    initial={{ x: -30, opacity: 0 }}
-                    animate={{ x: 0, opacity: 1 }}
-                    transition={{ delay: (i % POR_PAGINA) * 0.04 }}
+            <div className="mb-4 flex min-h-0 flex-1 flex-col gap-3">
+              {/* Filtro por institución */}
+              {instituciones.length > 1 ? (
+                <label className="flex items-center gap-2">
+                  <span className="shrink-0 text-xs font-extrabold uppercase text-ink-soft">Institución</span>
+                  <select
+                    value={institucionActual ? escuela : ""}
+                    onChange={(e) => cambiarEscuela(e.target.value)}
+                    className="min-w-0 flex-1 cursor-pointer truncate rounded-xl border-[3px] border-cream-border bg-white px-3 py-1.5 text-sm font-bold text-ink focus:border-celeste-dark focus:outline-none"
                   >
-                    <Medalla puesto={i + 1} />
-                    <div className="min-w-0 flex-1">
-                      <p className="truncate font-display text-lg leading-tight text-navy-900">{f.nombre}</p>
-                      <p className="truncate text-xs font-bold text-ink-soft">
-                        {f.curso} · {f.escuela}
-                      </p>
-                    </div>
-                    <div className="text-right">
-                      <p className="font-display text-lg leading-tight text-navy-800">{f.puntaje.toLocaleString("es-AR")}</p>
-                      <p className="text-[11px] font-extrabold uppercase text-ink-soft">
-                        {f.malvinometro}% · {f.nivel}
-                      </p>
-                    </div>
-                  </motion.li>
+                    <option value="">Todas ({todas?.length ?? 0})</option>
+                    {instituciones.map((i) => (
+                      <option key={i.clave} value={i.clave}>
+                        {i.nombre} ({i.cantidad})
+                      </option>
+                    ))}
+                  </select>
+                </label>
+              ) : null}
+
+              {/* Podio fijo */}
+              <ol className="flex shrink-0 flex-col gap-2" aria-label="Podio">
+                {podio.map((f, i) => (
+                  <Fila key={f.id} fila={f} puesto={i + 1} propia={esPropia(f)} delay={i * 0.04} />
                 ))}
               </ol>
 
-              {hayMas ? (
-                <div className="mb-6 flex justify-center">
-                  <button
-                    type="button"
-                    onClick={() => setCantidad((c) => c + POR_PAGINA)}
-                    disabled={cargando}
-                    className="rounded-full border-[3px] border-navy-700 bg-white px-6 py-2 font-display text-base uppercase text-navy-700 shadow-[0_3px_0_var(--color-navy-700)] transition-transform active:translate-y-0.5 disabled:opacity-50"
-                  >
-                    {cargando ? "Cargando…" : "Ver más"}
-                  </button>
+              {/* Resto: se desplaza dentro de la tarjeta */}
+              {resto.length > 0 ? (
+                <div
+                  ref={scrollRef}
+                  className="ranking-scroll -mx-1 min-h-[8.5rem] flex-1 overflow-y-auto max-lg:max-h-[50dvh] overscroll-contain px-1 pb-1"
+                >
+                  <ol ref={listaRef} className="flex flex-col gap-2" start={PODIO + 1}>
+                    {restoVisible.map((f, i) => (
+                      <Fila
+                        key={f.id}
+                        fila={f}
+                        puesto={PODIO + i + 1}
+                        propia={esPropia(f)}
+                        delay={(i % POR_PAGINA) * 0.04}
+                      />
+                    ))}
+                  </ol>
+                  {hayMas ? (
+                    <div className="mt-3 flex justify-center">
+                      <button
+                        type="button"
+                        onClick={verMas}
+                        className="rounded-full border-[3px] border-navy-700 bg-white px-6 py-2 font-display text-base uppercase text-navy-700 shadow-[0_3px_0_var(--color-navy-700)] transition-transform active:translate-y-0.5"
+                      >
+                        Ver más
+                      </button>
+                    </div>
+                  ) : (
+                    <p className="mt-3 text-center text-xs font-extrabold uppercase text-ink-soft">
+                      {filas.length} {filas.length === 1 ? "participante" : "participantes"}
+                    </p>
+                  )}
                 </div>
               ) : (
-                <div className="mb-2" />
+                <div className="flex-1" />
               )}
-            </>
+
+              {/* Mi posición, anclada abajo */}
+              <div className="shrink-0 border-t-[3px] border-dashed border-cream-border pt-3">
+                <p className="mb-1.5 text-xs font-extrabold uppercase text-ink-soft">
+                  {escuela ? "Tu posición en esta institución" : "Tu posición"}
+                </p>
+                {miIndice >= 0 && filas ? (
+                  <ol>
+                    <Fila fila={filas[miIndice]} puesto={miIndice + 1} propia />
+                  </ol>
+                ) : (
+                  <p className="rounded-2xl border-[3px] border-dashed border-cream-border bg-white/50 px-3 py-2.5 text-center text-sm font-bold text-ink-soft">
+                    {tengoPuntajes
+                      ? "Todavía no tenés puntajes en esta institución."
+                      : "Jugá y guardá tu puntaje para aparecer acá."}
+                  </p>
+                )}
+              </div>
+            </div>
           )}
 
-          <div className="flex flex-col gap-4">
+          <div className="flex shrink-0 flex-col gap-4">
             <Button3D href="/jugar" size="lg" pulse>
               ¡Jugar!
             </Button3D>
