@@ -29,3 +29,14 @@ export async function ensureAnonymousUser(): Promise<User> {
   const cred = await signInAnonymously(auth);
   return cred.user;
 }
+
+/**
+ * Id de la sesión anónima de este dispositivo, si ya existe.
+ * No crea una sesión nueva: solo lee la que quedó guardada al jugar.
+ */
+export async function uidActual(): Promise<string | null> {
+  if (!firebaseConfigured()) return null;
+  const auth = getAuth(getFirebaseApp());
+  await auth.authStateReady();
+  return auth.currentUser?.uid ?? null;
+}
