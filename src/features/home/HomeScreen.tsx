@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { Logo } from "@/components/brand/Logo";
+import { UnpilarLogo } from "@/components/brand/UnpilarLogo";
 import { Button3D } from "@/components/ui/Button3D";
 import { CategoryBadge } from "@/components/ui/CategoryBadge";
 import { CreamCard } from "@/components/ui/CreamCard";
@@ -109,6 +110,18 @@ export function HomeScreen() {
           </motion.li>
         ))}
       </motion.ul>
+
+      <motion.footer
+        className="flex w-full flex-col items-center gap-2 text-center"
+        initial={{ opacity: 0, y: 12 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 1.7 }}
+      >
+        <p className="text-xs font-bold uppercase tracking-wider text-celeste-light/80">
+          Una producción de estudiantes de Comunicación Digital
+        </p>
+        <UnpilarLogo className="w-44" />
+      </motion.footer>
 
       <HowToPlayModal open={howToOpen} onClose={() => setHowToOpen(false)} />
     </main>
